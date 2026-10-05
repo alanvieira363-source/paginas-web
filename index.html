@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es" data-tone="pink">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Jerome · Bar de copas y coctelería de autor en Palermo</title>
+  <meta name="description" content="Jerome, bar de copas con música en Palermo (Malabia 1401, CABA). Coctelería de autor, sesiones de DJ de jueves a domingo y luz baja. Reservá tu mesa por WhatsApp.">
+  <meta name="theme-color" content="#0B0B14">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jerome · El mejor lugar para compartir momentos.">
+  <meta property="og:description" content="Bar de copas con música en Palermo. Coctelería de autor, DJ de jueves a domingo. Reservá tu mesa.">
+  <meta property="og:image" content="assets/img/hero.webp">
+  <link rel="icon" href="assets/favicon.svg?v=20261005" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Manrope:wght@300..700&family=Space+Mono:wght@400;700&display=swap">
+  <link rel="preload" as="image" href="assets/img/hero.webp?v=20261005">
+  <link rel="stylesheet" href="styles.css?v=20261005">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "name": "Jerome",
+    "slogan": "El mejor lugar para compartir momentos.",
+    "image": "assets/img/hero.webp",
+    "telephone": "+54 11 6472-3635",
+    "address": { "@type": "PostalAddress", "streetAddress": "Malabia 1401", "addressLocality": "Ciudad Autónoma de Buenos Aires", "addressCountry": "AR" },
+    "openingHours": "We-Su 19:00-02:30",
+    "servesCuisine": "Coctelería de autor",
+    "acceptsReservations": "True",
+    "sameAs": ["https://www.instagram.com/ejemplo/"]
+  }
+  </script>
+  <script defer src="lib/gsap.min.js?v=20261005"></script>
+  <script defer src="lib/ScrollTrigger.min.js?v=20261005"></script>
+  <script defer src="lib/manifest.js?v=20261005"></script>
+  <script defer src="main.js?v=20261005"></script>
+</head>
+<body>
+  <a class="skip" href="#reserva">Saltar a reservar mesa</a>
+
+  <!-- ============ SPLASH ============ -->
+  <div class="splash" aria-hidden="true">
+    <div class="splash__word">
+      <span style="--i:0">J</span><span style="--i:1">E</span><span style="--i:2">R</span><span style="--i:3">O</span><span style="--i:4">M</span><span style="--i:5">E</span>
+    </div>
+    <div class="splash__bar"><i></i></div>
+    <p class="splash__meta">Bar de copas · Palermo · EST. 2024</p>
+  </div>
+
+  <!-- ============ FONDO: aurora + grano ============ -->
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ CURSOR ============ -->
+  <div class="cursor" aria-hidden="true"><div class="cursor__ring"><span class="cursor__label"></span></div><div class="cursor__dot"></div></div>
+
+  <!-- ============ MARCA LATERAL ============ -->
+  <div class="sidemark" aria-hidden="true"><span class="sidemark__dot"></span><span>ABIERTO · <span data-b-text="hoursShort">MIÉ → DOM · 19:00 → 02:30</span></span></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a class="nav__logo" href="#top" data-cursor="arriba" aria-label="Jerome, volver al inicio">
+      <span class="nav__name">Jerome</span><span class="nav__est">EST. 2024</span>
+    </a>
+    <nav class="nav__links" aria-label="Secciones">
+      <a href="#local"><sup>01</sup>El local</a>
+      <a href="#carta"><sup>02</sup>Carta</a>
+      <a href="#musica"><sup>03</sup>Música</a>
+      <a href="#galeria"><sup>04</sup>Galería</a>
+      <a href="#privados"><sup>05</sup>Privados</a>
+    </nav>
+    <a class="nav__cta btn btn--pill" href="#reserva" data-cursor="reservar">Reservar <span class="arrow">→</span></a>
+    <button class="nav__burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav aria-label="Menú móvil">
+      <a href="#local"><sup>01</sup>El local</a>
+      <a href="#carta"><sup>02</sup>Carta</a>
+      <a href="#musica"><sup>03</sup>Música</a>
+      <a href="#galeria"><sup>04</sup>Galería</a>
+      <a href="#privados"><sup>05</sup>Privados</a>
+      <a href="#reserva" class="menu__cta"><sup>06</sup>Reservar mesa →</a>
+    </nav>
+    <p class="menu__meta"><span data-b-text="address">Malabia 1401</span> · <span data-b-text="city">Palermo · CABA</span><br><span data-b-text="hours">Miércoles a domingo · 19:00 → 02:30</span></p>
+  </div>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero" data-tone="pink" aria-label="Portada">
+      <div class="hero__media" aria-hidden="true">
+        <img class="hero__img" src="assets/img/hero.webp?v=20261005" alt="" fetchpriority="high" decoding="async">
+        <div class="hero__veil"></div>
+      </div>
+      <div class="hero__inner">
+        <p class="hero__kicker"><span>Bar de copas · Coctelería de autor</span><span><span data-b-text="city">Palermo · CABA</span> · Buenos Aires</span></p>
+        <h1 class="hero__title" aria-label="Jerome">
+          <span class="hero__line" aria-hidden="true"><span class="hero__char" style="--i:0">J</span><span class="hero__char" style="--i:1">e</span><span class="hero__char" style="--i:2">r</span></span>
+          <span class="hero__line hero__line--off" aria-hidden="true"><em><span class="hero__char" style="--i:3">o</span><span class="hero__char" style="--i:4">m</span><span class="hero__char" style="--i:5">e</span><span class="hero__char hero__char--dot" style="--i:6">.</span></em></span>
+        </h1>
+        <p class="hero__tagline"><em data-b-text="tagline">Donde la noche baja la voz.</em></p>
+        <p class="hero__slogan" data-b-text="slogan">El mejor lugar para compartir momentos.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--primary" href="#reserva" data-cursor="reservar">Reservar mesa <span class="arrow">→</span></a>
+          <a class="btn btn--ghost" href="#carta" data-cursor="leer">Ver la carta</a>
+        </div>
+      </div>
+      <div class="hero__meta" aria-hidden="true">
+        <span>Mié → Dom</span><span>19:00 → 02:30</span><span data-b-text="address">Malabia 1401</span>
+      </div>
+      <a class="hero__scroll" href="#local" aria-label="Bajar a El local"><span>Bajá</span><i></i></a>
+    </section>
+
+    <!-- ============ MARQUEE NEÓN ============ -->
+    <div class="neon-marquee" aria-label="Coctelería de autor. Sesión de DJ de jueves a domingo. Malabia 1401, Palermo. Aforo íntimo de 60 personas. Donde la noche baja la voz.">
+      <div class="neon-marquee__track" aria-hidden="true">
+        <span class="neon-marquee__run"><span class="p">Coctelería de autor</span><i>✦</i><span class="c">Sesión de DJ jue → dom</span><i>✦</i><span class="p">Malabia 1401 · Palermo</span><i>✦</i><span class="c">Aforo íntimo · 60 personas</span><i>✦</i><span class="p">Donde la noche baja la voz</span><i>✦</i></span>
+        <span class="neon-marquee__run"><span class="p">Coctelería de autor</span><i>✦</i><span class="c">Sesión de DJ jue → dom</span><i>✦</i><span class="p">Malabia 1401 · Palermo</span><i>✦</i><span class="c">Aforo íntimo · 60 personas</span><i>✦</i><span class="p">Donde la noche baja la voz</span><i>✦</i></span>
+      </div>
+    </div>
+
+    <!-- ============ 01 · EL LOCAL ============ -->
+    <section class="local section" id="local" data-tone="gold">
+      <span class="watermark" aria-hidden="true">01</span>
+      <div class="local__grid">
+        <div class="collage reveal" aria-label="Fotos del local">
+          <figure class="collage__item collage__item--a"><img src="assets/img/local-1.webp" alt="Contrabarra de botellas retroiluminadas en luz cálida" loading="lazy" decoding="async"></figure>
+          <figure class="collage__item collage__item--b"><img src="assets/img/local-2.webp" alt="Letrero de neón rosa con forma de copa sobre ladrillo" loading="lazy" decoding="async"></figure>
+          <figure class="collage__item collage__item--c"><img src="assets/img/local-3.webp" alt="Copa coupe sobre la barra de latón bajo una lámpara" loading="lazy" decoding="async"></figure>
+          <span class="tape" aria-hidden="true">EST. 2024</span>
+        </div>
+        <div class="local__text">
+          <p class="eyebrow reveal"><span class="eyebrow__n">01</span> El local</p>
+          <h2 class="h2" data-split>Un bar para que la noche <em>dure</em> de <em>verdad.</em></h2>
+          <aside class="local__aside reveal">
+            <p class="label">EST · 2024 · BA</p>
+            <blockquote>“<span data-b-text="slogan">El mejor lugar para compartir momentos.</span>”</blockquote>
+            <p class="meta"><span data-b-text="address">Malabia 1401</span> — <span data-b-text="city">Palermo · CABA</span></p>
+          </aside>
+          <p class="lead reveal">Un sitio para empezar la noche con criterio. Buena copa, buena música, luz baja.</p>
+          <p class="body reveal">Terciopelo, latón y una barra que se ilumina desde atrás. Jerome no es una discoteca ni la coctelería de moda: es un bar de copas con la música puesta con criterio, una carta corta de autor y sitio para sesenta personas. De jueves a domingo la cabina manda; el resto de la semana, se charla.</p>
+          <dl class="facts reveal">
+            <div><dt>Aforo</dt><dd data-b-text="capacity">60 personas</dd></div>
+            <div><dt>Apertura</dt><dd>Miércoles a domingo</dd></div>
+            <div><dt>Horario</dt><dd>19:00 → 02:30</dd></div>
+            <div><dt>Reserva</dt><dd>Recomendada jue–sáb</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 · CÓCTELES ============ -->
+    <section class="cocktails" id="carta" data-tone="pink" aria-label="Carta de cócteles">
+      <div class="cocktails__head">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__n">02</span> La carta</p>
+          <h2 class="cocktails__title">Diez copas. <em>Una noche larga.</em></h2>
+        </div>
+        <div class="cocktails__ctrl">
+          <p class="cocktails__legend"><span class="tag tag--casa">Casa</span><span class="tag">Temporada</span></p>
+          <div class="progress" aria-hidden="true">
+            <span class="progress__num"><b data-cur>01</b> / <span data-total>10</span></span>
+            <span class="progress__bar"><i></i></span>
+          </div>
+          <div class="cocktails__arrows">
+            <button type="button" class="arrow-btn" data-carousel="-1" aria-label="Cóctel anterior" data-cursor="ver">←</button>
+            <button type="button" class="arrow-btn" data-carousel="1" aria-label="Cóctel siguiente" data-cursor="ver">→</button>
+          </div>
+        </div>
+      </div>
+      <div class="cocktails__track" data-mount="cocktails" tabindex="0" aria-label="Cócteles: deslizá para ver las diez copas">
+        <article class="cocktail cocktail--casa" data-index="0" style="--accent:#FF3D8B;--liquid:#7a2a1c" aria-label="Penumbra, 1 de 10"><span class="cocktail__num" aria-hidden="true">01</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="coupe" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa coupe con Penumbra"></svg><span class="cocktail__glassname">Copa coupe</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag tag--casa">Casa</span><span class="cocktail__count">01 / 10</span></p><h3 class="cocktail__name">Penumbra</h3><p class="cocktail__sub">La copa de la casa</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Mezcal ahumado</li><li style="--k:1"><span>02</span>Vermut oscuro</li><li style="--k:2"><span>03</span>Toque de café</li></ul><p class="cocktail__desc">Ahumado, amargo y largo. Un sorbo lento para empezar la noche en su tono justo. Copa coupe sobre hielo de mano.</p></div></article>
+        <article class="cocktail cocktail--casa" data-index="1" style="--accent:#3DE2FF;--liquid:#3DE2FF" aria-label="Neón, 2 de 10"><span class="cocktail__num" aria-hidden="true">02</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="highball" viewBox="0 0 400 520" role="img" aria-label="Dibujo de vaso highball con Neón"></svg><span class="cocktail__glassname">Vaso highball</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag tag--casa">Casa</span><span class="cocktail__count">02 / 10</span></p><h3 class="cocktail__name">Neón</h3><p class="cocktail__sub">Gin tonic de autor</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Ginebra cítrica</li><li style="--k:1"><span>02</span>Tónica seca</li><li style="--k:2"><span>03</span>Piel de pomelo</li></ul><p class="cocktail__desc">Burbuja viva, cítrico afilado y un brillo que recuerda al letrero de la entrada. Highball alto, hielo limpio.</p></div></article>
+        <article class="cocktail cocktail--casa" data-index="2" style="--accent:#C9A35B;--liquid:#1c0e08" aria-label="Medianoche, 3 de 10"><span class="cocktail__num" aria-hidden="true">03</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="martini" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa martini con Medianoche"></svg><span class="cocktail__glassname">Copa martini</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag tag--casa">Casa</span><span class="cocktail__count">03 / 10</span></p><h3 class="cocktail__name">Medianoche</h3><p class="cocktail__sub">Espresso martini</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Espresso reciente</li><li style="--k:1"><span>02</span>Vodka</li><li style="--k:2"><span>03</span>Licor de café</li></ul><p class="cocktail__desc">Café recién hecho y vodka helado, batido hasta dejar la espuma del color del cobre. Para la hora en que la pista calienta.</p></div></article>
+        <article class="cocktail cocktail--casa" data-index="3" style="--accent:#FF3D8B;--liquid:#b73422" aria-label="Brasa, 4 de 10"><span class="cocktail__num" aria-hidden="true">04</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="old_fashioned" viewBox="0 0 400 520" role="img" aria-label="Dibujo de vaso old fashioned con Brasa"></svg><span class="cocktail__glassname">Vaso old fashioned</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag tag--casa">Casa</span><span class="cocktail__count">04 / 10</span></p><h3 class="cocktail__name">Brasa</h3><p class="cocktail__sub">Negroni con tequila</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Tequila reposado</li><li style="--k:1"><span>02</span>Campari</li><li style="--k:2"><span>03</span>Vermut rojo</li></ul><p class="cocktail__desc">Negroni reescrito con el ahumado del tequila reposado. Old fashioned, hielo macizo, piel de naranja quemada al pase.</p></div></article>
+        <article class="cocktail" data-index="4" style="--accent:#C9A35B;--liquid:#3a1a0e" aria-label="Vermut Negro, 5 de 10"><span class="cocktail__num" aria-hidden="true">05</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="rocks" viewBox="0 0 400 520" role="img" aria-label="Dibujo de vaso rocks con Vermut Negro"></svg><span class="cocktail__glassname">Vaso rocks</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">05 / 10</span></p><h3 class="cocktail__name">Vermut Negro</h3><p class="cocktail__sub">Vermut largo de la casa</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Vermut casa</li><li style="--k:1"><span>02</span>Naranja confitada</li><li style="--k:2"><span>03</span>Hielo macizo</li></ul><p class="cocktail__desc">Vermut servido sobre hielo de mano, con una naranja confitada en la propia barra. Pensado para los que entran y aún no piden.</p></div></article>
+        <article class="cocktail" data-index="5" style="--accent:#FF3D8B;--liquid:#cc4a26" aria-label="Sereno, 6 de 10"><span class="cocktail__num" aria-hidden="true">06</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="wine" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa de vino con Sereno"></svg><span class="cocktail__glassname">Copa de vino</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">06 / 10</span></p><h3 class="cocktail__name">Sereno</h3><p class="cocktail__sub">Spritz oscuro</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Aperol</li><li style="--k:1"><span>02</span>Cava seco</li><li style="--k:2"><span>03</span>Soda</li></ul><p class="cocktail__desc">Spritz reescrito en clave nocturna. Aperol, cava seco y soda fría. Para empezar sin pesar.</p></div></article>
+        <article class="cocktail" data-index="6" style="--accent:#C9A35B;--liquid:#e8c780" aria-label="Aurora, 7 de 10"><span class="cocktail__num" aria-hidden="true">07</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="flute" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa flauta con Aurora"></svg><span class="cocktail__glassname">Copa flauta</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">07 / 10</span></p><h3 class="cocktail__name">Aurora</h3><p class="cocktail__sub">French 75 con vermut</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Cava brut</li><li style="--k:1"><span>02</span>Ginebra</li><li style="--k:2"><span>03</span>Limón</li></ul><p class="cocktail__desc">Cava, ginebra y un toque de vermut blanco. Sube rápido, baja despacio.</p></div></article>
+        <article class="cocktail" data-index="7" style="--accent:#C9A35B;--liquid:#1a0d05" aria-label="Última Hora, 8 de 10"><span class="cocktail__num" aria-hidden="true">08</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="mug" viewBox="0 0 400 520" role="img" aria-label="Dibujo de taza pequeña con Última Hora"></svg><span class="cocktail__glassname">Taza pequeña</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">08 / 10</span></p><h3 class="cocktail__name">Última Hora</h3><p class="cocktail__sub">Café final de noche</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Espresso</li><li style="--k:1"><span>02</span>Ron añejo</li><li style="--k:2"><span>03</span>Crema</li></ul><p class="cocktail__desc">Para los que se quedan al cierre. Espresso, ron añejo y una nube de crema. Servido en taza pequeña.</p></div></article>
+        <article class="cocktail" data-index="8" style="--accent:#3DE2FF;--liquid:#d8c272" aria-label="Veneno, 9 de 10"><span class="cocktail__num" aria-hidden="true">09</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="snifter" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa balón con Veneno"></svg><span class="cocktail__glassname">Copa balón</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">09 / 10</span></p><h3 class="cocktail__name">Veneno</h3><p class="cocktail__sub">Pisco sour de la casa</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Pisco</li><li style="--k:1"><span>02</span>Limón</li><li style="--k:2"><span>03</span>Cardamomo</li></ul><p class="cocktail__desc">Pisco peruano, limón y un golpe de cardamomo verde. Suave en boca, largo en cabeza.</p></div></article>
+        <article class="cocktail" data-index="9" style="--accent:#FF3D8B;--liquid:#a8341a" aria-label="Vértigo, 10 de 10"><span class="cocktail__num" aria-hidden="true">10</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="hurricane" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa hurricane con Vértigo"></svg><span class="cocktail__glassname">Copa hurricane</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">10 / 10</span></p><h3 class="cocktail__name">Vértigo</h3><p class="cocktail__sub">Mai tai oscuro</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Ron añejo</li><li style="--k:1"><span>02</span>Curaçao seco</li><li style="--k:2"><span>03</span>Lima</li></ul><p class="cocktail__desc">Mai tai reescrito con ron añejo y curaçao seco. La copa que se pide cuando ya hay confianza.</p></div></article>
+      </div>
+      <p class="cocktails__hint" aria-hidden="true"><span class="only-touch">Deslizá con el dedo →</span><span class="only-mouse">Seguí bajando · la carta avanza sola →</span></p>
+      <div class="ing-marquee" aria-hidden="true"><div class="ing-marquee__inner" data-mount="ingredients"><div class="ing-marquee__run"><span>Mezcal ahumado</span><i>✦</i><span>Vermut oscuro</span><i>✦</i><span>Toque de café</span><i>✦</i><span>Ginebra cítrica</span><i>✦</i><span>Tónica seca</span><i>✦</i><span>Piel de pomelo</span><i>✦</i><span>Espresso reciente</span><i>✦</i><span>Vodka</span><i>✦</i><span>Licor de café</span><i>✦</i><span>Tequila reposado</span><i>✦</i><span>Campari</span><i>✦</i><span>Vermut rojo</span><i>✦</i><span>Vermut casa</span><i>✦</i><span>Naranja confitada</span><i>✦</i><span>Hielo macizo</span><i>✦</i><span>Aperol</span><i>✦</i><span>Cava seco</span><i>✦</i><span>Soda</span><i>✦</i><span>Cava brut</span><i>✦</i><span>Ginebra</span><i>✦</i><span>Limón</span><i>✦</i><span>Espresso</span><i>✦</i><span>Ron añejo</span><i>✦</i><span>Crema</span><i>✦</i><span>Pisco</span><i>✦</i><span>Cardamomo</span><i>✦</i><span>Curaçao seco</span><i>✦</i><span>Lima</span><i>✦</i></div><div class="ing-marquee__run" aria-hidden="true"><span>Mezcal ahumado</span><i>✦</i><span>Vermut oscuro</span><i>✦</i><span>Toque de café</span><i>✦</i><span>Ginebra cítrica</span><i>✦</i><span>Tónica seca</span><i>✦</i><span>Piel de pomelo</span><i>✦</i><span>Espresso reciente</span><i>✦</i><span>Vodka</span><i>✦</i><span>Licor de café</span><i>✦</i><span>Tequila reposado</span><i>✦</i><span>Campari</span><i>✦</i><span>Vermut rojo</span><i>✦</i><span>Vermut casa</span><i>✦</i><span>Naranja confitada</span><i>✦</i><span>Hielo macizo</span><i>✦</i><span>Aperol</span><i>✦</i><span>Cava seco</span><i>✦</i><span>Soda</span><i>✦</i><span>Cava brut</span><i>✦</i><span>Ginebra</span><i>✦</i><span>Limón</span><i>✦</i><span>Espresso</span><i>✦</i><span>Ron añejo</span><i>✦</i><span>Crema</span><i>✦</i><span>Pisco</span><i>✦</i><span>Cardamomo</span><i>✦</i><span>Curaçao seco</span><i>✦</i><span>Lima</span><i>✦</i></div></div></div>
+    </section>
+
+    <!-- ============ 03 · MÚSICA ============ -->
+    <section class="music section" id="musica" data-tone="cyan">
+      <span class="watermark" aria-hidden="true">03</span>
+      <div class="music__head">
+        <p class="eyebrow reveal"><span class="eyebrow__n">03</span> Música</p>
+        <h2 class="h2" data-split>De jueves a domingo, <em>la cabina manda.</em></h2>
+        <p class="lead reveal">Sesiones de DJ con la música puesta con criterio: volumen para hablar al principio, pista al final.</p>
+      </div>
+      <ol class="sessions" data-mount="sessions">
+        <li class="session reveal" style="--accent:#C9A35B;--d:0ms" data-day="Jueves" data-cursor="oír"><span class="session__icon" aria-hidden="true"><svg viewBox="0 0 48 48" class="ico ico--vinyl"><g class="spin"><circle cx="24" cy="24" r="20"/><circle cx="24" cy="24" r="15" opacity=".45"/><circle cx="24" cy="24" r="11" opacity=".3"/><circle cx="24" cy="24" r="6"/><circle cx="24" cy="24" r="1.4" class="fill"/><path d="M12 13a16 16 0 0 1 9-5" opacity=".8"/></g></svg></span><span class="session__idx">01</span><h3 class="session__day">Jueves</h3><p class="session__genre">Soul &amp; Funk</p><p class="session__note">Vinilo entero, sin prisa.</p><span class="session__tonight">Esta noche</span></li>
+        <li class="session reveal" style="--accent:#FF3D8B;--d:90ms" data-day="Viernes" data-cursor="oír"><span class="session__icon" aria-hidden="true"><svg viewBox="0 0 48 48" class="ico ico--house"><path d="M6 22 24 7l18 15v19H6z"/><g class="eq"><rect x="14" y="26" width="3.5" height="11" rx="1"/><rect x="20" y="22" width="3.5" height="15" rx="1"/><rect x="26" y="28" width="3.5" height="9" rx="1"/><rect x="32" y="24" width="3.5" height="13" rx="1"/></g></svg></span><span class="session__idx">02</span><h3 class="session__day">Viernes</h3><p class="session__genre">House</p><p class="session__note">Selección de la casa.</p><span class="session__tonight">Esta noche</span></li>
+        <li class="session reveal" style="--accent:#3DE2FF;--d:180ms" data-day="Sábado" data-cursor="oír"><span class="session__icon" aria-hidden="true"><svg viewBox="0 0 48 48" class="ico ico--disco"><path d="M24 2v8"/><circle cx="24" cy="27" r="15"/><g class="mer"><ellipse cx="24" cy="27" rx="7" ry="15"/><ellipse cx="24" cy="27" rx="12" ry="15" opacity=".5"/></g><path d="M9.5 22h29M9 27h30M9.5 32h29M12 17.5h24M12 36.5h24" opacity=".6"/><path class="spark" d="M41 8v6M38 11h6"/></svg></span><span class="session__idx">03</span><h3 class="session__day">Sábado</h3><p class="session__genre">Disco &amp; Nu-Disco</p><p class="session__note">Pista llena, pies sueltos.</p><span class="session__tonight">Esta noche</span></li>
+        <li class="session reveal" style="--accent:#C9A35B;--d:270ms" data-day="Domingo" data-cursor="oír"><span class="session__icon" aria-hidden="true"><svg viewBox="0 0 48 48" class="ico ico--wave"><path class="w1" d="M2 24c4-9 8-9 11 0s7 9 11 0 7-9 11 0 7 9 11 0"/><path class="w2" d="M2 32c4-5 8-5 11 0s7 5 11 0 7-5 11 0 7 5 11 0" opacity=".45"/></svg></span><span class="session__idx">04</span><h3 class="session__day">Domingo</h3><p class="session__genre">Jazz &amp; Electrónica suave</p><p class="session__note">Sesión lenta para cerrar la semana.</p><span class="session__tonight">Esta noche</span></li>
+      </ol>
+    </section>
+
+    <!-- ============ 04 · GALERÍA ============ -->
+    <section class="gallery section" id="galeria" data-tone="gold">
+      <span class="watermark" aria-hidden="true">04</span>
+      <div class="gallery__head">
+        <p class="eyebrow reveal"><span class="eyebrow__n">04</span> Galería</p>
+        <h2 class="h2" data-split>La noche, <em>en fotos.</em></h2>
+      </div>
+      <div class="gallery__rows">
+        <div class="gallery__row gallery__row--fast"><div class="gallery__track" data-mount="gallery-1"><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-01.webp" alt="Luces doradas desenfocadas en la barra" loading="lazy" decoding="async"><figcaption>Luz baja</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-04.webp" alt="Humo de colores sobre fondo oscuro" loading="lazy" decoding="async"><figcaption>Humo</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-07.webp" alt="Copa coupe con trago rojo sobre la barra" loading="lazy" decoding="async"><figcaption>Cristal</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-10.webp" alt="Rodaja de naranja a contraluz" loading="lazy" decoding="async"><figcaption>Cítrico</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-13.webp" alt="Reflejos sobre la barra de latón" loading="lazy" decoding="async"><figcaption>Latón</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-16.webp" alt="Hielo macizo dentro de un trago ámbar" loading="lazy" decoding="async"><figcaption>Hielo</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-01.webp" alt="" loading="lazy" decoding="async"><figcaption>Luz baja</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-04.webp" alt="" loading="lazy" decoding="async"><figcaption>Humo</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-07.webp" alt="" loading="lazy" decoding="async"><figcaption>Cristal</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-10.webp" alt="" loading="lazy" decoding="async"><figcaption>Cítrico</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-13.webp" alt="" loading="lazy" decoding="async"><figcaption>Latón</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-16.webp" alt="" loading="lazy" decoding="async"><figcaption>Hielo</figcaption></figure></div></div>
+        <div class="gallery__row gallery__row--slow"><div class="gallery__track" data-mount="gallery-2"><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-02.webp" alt="Letrero de neón rosa con forma de copa" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-05.webp" alt="Burbujas en un trago ámbar" loading="lazy" decoding="async"><figcaption>Burbuja</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-08.webp" alt="Lámparas colgantes de luz cálida" loading="lazy" decoding="async"><figcaption>Luz baja</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-11.webp" alt="Humo dorado en espiral" loading="lazy" decoding="async"><figcaption>Humo</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-14.webp" alt="Burbujas finas de cava" loading="lazy" decoding="async"><figcaption>Burbuja</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-02.webp" alt="" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-05.webp" alt="" loading="lazy" decoding="async"><figcaption>Burbuja</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-08.webp" alt="" loading="lazy" decoding="async"><figcaption>Luz baja</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-11.webp" alt="" loading="lazy" decoding="async"><figcaption>Humo</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-14.webp" alt="" loading="lazy" decoding="async"><figcaption>Burbuja</figcaption></figure></div></div>
+        <div class="gallery__row gallery__row--rev"><div class="gallery__track" data-mount="gallery-3"><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-03.webp" alt="Tubos de neón cian y rosa ondulados" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-06.webp" alt="Hielo de mano a contraluz" loading="lazy" decoding="async"><figcaption>Hielo</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-09.webp" alt="Botellas retroiluminadas en la contrabarra" loading="lazy" decoding="async"><figcaption>Barra</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-12.webp" alt="Bokeh rosa y cian de la pista" loading="lazy" decoding="async"><figcaption>Pista</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-15.webp" alt="Flecha de neón rosa en la pared de ladrillo" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-03.webp" alt="" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-06.webp" alt="" loading="lazy" decoding="async"><figcaption>Hielo</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-09.webp" alt="" loading="lazy" decoding="async"><figcaption>Barra</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-12.webp" alt="" loading="lazy" decoding="async"><figcaption>Pista</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-15.webp" alt="" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure></div></div>
+      </div>
+    </section>
+
+    <!-- ============ 05 · EVENTOS PRIVADOS ============ -->
+    <section class="private section" id="privados" data-tone="pink">
+      <span class="watermark" aria-hidden="true">05</span>
+      <div class="private__wrap reveal">
+      <div class="private__card" data-cursor="privado">
+        <div class="private__bg" aria-hidden="true"><img src="assets/img/privado.webp" alt="" loading="lazy" decoding="async"></div>
+        <div class="private__veil" aria-hidden="true"></div>
+        <div class="private__content">
+          <p class="eyebrow"><span class="eyebrow__n">05</span> Eventos privados</p>
+          <h2 class="h2" data-split>Cierra Jerome <em>para los tuyos.</em></h2>
+          <p class="lead">Un cumpleaños que se recuerde, el lanzamiento de algo tuyo o la noche de empresa con criterio. Cerramos el bar para vos y tu gente: carta a medida, música a medida y la barra entera.</p>
+          <ul class="chips">
+            <li>Cumpleaños</li><li>Lanzamientos</li><li>Empresa con criterio</li><li>Hasta <span data-b-text="capacity">60 personas</span></li>
+          </ul>
+          <a class="btn btn--primary" href="https://wa.me/5491164723635?text=Hola%20Jerome%2C%20quiero%20consultar%20por%20un%20evento%20privado." data-b-wa="Hola {name}, quiero consultar por un evento privado. Somos __ personas y la fecha sería __." target="_blank" rel="noopener" data-cursor="WhatsApp">Hablamos por WhatsApp <span class="arrow">→</span></a>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 · RESERVA ============ -->
+    <section class="reserve section" id="reserva" data-tone="cyan">
+      <span class="watermark" aria-hidden="true">06</span>
+      <div class="reserve__grid">
+        <div class="reserve__main">
+          <p class="eyebrow reveal"><span class="eyebrow__n">06</span> Reserva</p>
+          <h2 class="h2" data-split>Tu mesa, <em>esta noche.</em></h2>
+          <p class="lead reveal">Completá esto y te abrimos WhatsApp con la reserva ya escrita. Solo tenés que darle a enviar.</p>
+          <form class="form reveal" id="reserva-form" novalidate>
+            <div class="field">
+              <label for="f-nombre"><span class="field__n">01</span> Nombre</label>
+              <input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="¿A nombre de quién?" required data-label="nombre">
+            </div>
+            <div class="field">
+              <label for="f-tel"><span class="field__n">02</span> Teléfono</label>
+              <input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="11 1234-5678" required data-label="teléfono">
+            </div>
+            <div class="field-split">
+              <div class="field">
+                <label for="f-dia"><span class="field__n">03</span> Día</label>
+                <input id="f-dia" name="dia" type="date" required data-label="día">
+                <span class="field__hint" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="f-pax">Personas</label>
+                <select id="f-pax" name="personas" required data-label="personas">
+                  <option value="" selected disabled>¿Cuántos?</option>
+                  <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+                  <option value="Más de 12 (evento privado)">Más de 12</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-nota"><span class="field__n">04</span> Nota <small>(opcional)</small></label>
+              <textarea id="f-nota" name="nota" rows="2" placeholder="Cumpleaños, hora de llegada, alergias…"></textarea>
+            </div>
+            <p class="form__error" role="alert"></p>
+            <div class="form__actions">
+              <button class="btn btn--primary btn--big" type="submit" data-cursor="enviar">Enviar reserva por WhatsApp <span class="arrow">→</span></button>
+              <a class="form__alt" href="https://wa.me/5491164723635?text=Hola%20Jerome%2C%20quiero%20reservar%20mesa." data-b-wa="Hola {name}, quiero reservar mesa." target="_blank" rel="noopener" data-cursor="WhatsApp">…o más rápido por WhatsApp →</a>
+            </div>
+            <p class="form__sent" aria-live="polite">Listo: se abrió WhatsApp con tu reserva. Te confirmamos por ahí.</p>
+          </form>
+        </div>
+        <aside class="reserve__panel reveal" aria-label="Datos de contacto">
+          <dl>
+            <div><dt>Tel</dt><dd><a href="tel:+541164723635" data-b-tel data-b-text="phoneDisplay" data-cursor="llamar">11 6472-3635</a></dd></div>
+            <div><dt>IG</dt><dd><a href="https://www.instagram.com/ejemplo/" data-b-ig data-b-ig-text target="_blank" rel="noopener" data-cursor="mirar">@ejemplo</a></dd></div>
+            <div><dt>Dirección</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Malabia%201401%2C%20Palermo%2C%20Buenos%20Aires%2C%20Argentina" data-b-maplink target="_blank" rel="noopener" data-cursor="ver"><span data-b-text="address">Malabia 1401</span><br><span data-b-text="city">Palermo · CABA</span></a></dd></div>
+            <div><dt>Horario</dt><dd>Mié → Dom<br>19:00 → 02:30</dd></div>
+          </dl>
+          <p class="reserve__note"><span class="dot"></span><span>Jueves a sábado se llena. Aforo íntimo: <span data-b-text="capacity">60 personas</span>.</span></p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" data-tone="pink">
+    <div class="footer__display" aria-hidden="true">
+      <div class="footer__track"><span>Jerome</span><i>·</i><em>Jerome</em><i>·</i><span>Jerome</span><i>·</i><em>Jerome</em><i>·</i><span>Jerome</span><i>·</i><em>Jerome</em><i>·</i><span>Jerome</span><i>·</i><em>Jerome</em><i>·</i></div>
+    </div>
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h3 class="label">Cómo llegar</h3>
+        <p class="footer__big"><span data-b-text="address">Malabia 1401</span><br><span data-b-text="city">Palermo · CABA</span></p>
+        <p class="footer__small" data-b-text="directions">En pleno Palermo. Llegás en subte (línea D), en colectivo o caminando desde Palermo Soho.</p>
+        <a class="btn btn--primary" href="#reserva" data-cursor="reservar">Reservar mesa <span class="arrow">→</span></a>
+      </div>
+      <div class="footer__col">
+        <h3 class="label">Contacto</h3>
+        <ul class="footer__list">
+          <li><span>Tel</span><a href="tel:+541164723635" data-b-tel data-b-text="phoneDisplay" data-cursor="llamar">11 6472-3635</a></li>
+          <li><span>WhatsApp</span><a href="https://wa.me/5491164723635" data-b-wa="" target="_blank" rel="noopener" data-cursor="WhatsApp">Escribinos →</a></li>
+          <li><span>IG</span><a href="https://www.instagram.com/ejemplo/" data-b-ig data-b-ig-text target="_blank" rel="noopener" data-cursor="mirar">@ejemplo</a></li>
+          <li><span>Horario</span><span data-b-text="hours">Miércoles a domingo · 19:00 → 02:30</span></li>
+        </ul>
+      </div>
+      <div class="footer__map">
+        <iframe title="Mapa: Jerome, Malabia 1401, Palermo" data-b-map src="https://www.google.com/maps?q=Malabia%201401%2C%20Palermo%2C%20Buenos%20Aires%2C%20Argentina&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span>© <span data-year>2026</span> Jerome · EST. 2024 · Bar de copas</span>
+      <a href="assets/credits.json" target="_blank" rel="noopener">Créditos de imágenes</a>
+      <a href="#top" data-top data-cursor="arriba">↑ Volver arriba</a>
+    </div>
+  </footer>
+</body>
+</html>

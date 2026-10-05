@@ -1,0 +1,68 @@
+# =====================================================================
+#  JEROME · .htaccess (Hostinger / Apache)
+#  No hace falta tocar nada de este archivo.
+# =====================================================================
+
+# Página de inicio y sin listados de carpetas
+DirectoryIndex index.html
+Options -Indexes
+
+# Codificación y tipos de archivo
+AddDefaultCharset UTF-8
+<IfModule mod_mime.c>
+  AddCharset UTF-8 .html .css .js .json .svg .md
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+  AddType font/woff2 .woff2
+  AddType application/json .json
+  AddType text/javascript .js
+</IfModule>
+
+# Compresión (la web carga más rápido)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml text/plain
+</IfModule>
+
+# Caché del navegador
+#  - HTML: siempre se revisa (así los cambios se ven al momento)
+#  - CSS/JS: un año (cada versión lleva ?v=AAAAMMDD en index.html)
+#  - Imágenes: un mes
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 week"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|json)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# Archivos que no hace falta servir al público
+<FilesMatch "^(README\.md|\.htaccess)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Forzar HTTPS: en Hostinger suele activarse desde el panel (SSL → Forzar HTTPS).
+# Si preferís hacerlo aquí, quitá las almohadillas (#) de las 3 líneas siguientes:
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
