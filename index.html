@@ -1,327 +1,1546 @@
-<!DOCTYPE html>
-<html lang="es" data-tone="pink">
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Jerome · Bar de copas y coctelería de autor en Palermo</title>
-  <meta name="description" content="Jerome, bar de copas con música en Palermo (Malabia 1401, CABA). Coctelería de autor, sesiones de DJ de jueves a domingo y luz baja. Reservá tu mesa por WhatsApp.">
-  <meta name="theme-color" content="#0B0B14">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Jerome · El mejor lugar para compartir momentos.">
-  <meta property="og:description" content="Bar de copas con música en Palermo. Coctelería de autor, DJ de jueves a domingo. Reservá tu mesa.">
-  <meta property="og:image" content="assets/img/hero.webp">
-  <link rel="icon" href="assets/favicon.svg?v=20261005" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Manrope:wght@300..700&family=Space+Mono:wght@400;700&display=swap">
-  <link rel="preload" as="image" href="assets/img/hero.webp?v=20261005">
-  <link rel="stylesheet" href="styles.css?v=20261005">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BarOrPub",
-    "name": "Jerome",
-    "slogan": "El mejor lugar para compartir momentos.",
-    "image": "assets/img/hero.webp",
-    "telephone": "+54 11 6472-3635",
-    "address": { "@type": "PostalAddress", "streetAddress": "Malabia 1401", "addressLocality": "Ciudad Autónoma de Buenos Aires", "addressCountry": "AR" },
-    "openingHours": "We-Su 19:00-02:30",
-    "servesCuisine": "Coctelería de autor",
-    "acceptsReservations": "True",
-    "sameAs": ["https://www.instagram.com/ejemplo/"]
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ochava Bar</title>
+<meta name="description" content="Ochava, bar de esquina en Palermo: cócteles de autor, vermú con sifón, música en vivo y reservas online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: una esquina porteña de noche. Vistas tipo app (Inicio · Carta · Reserva · Contacto),
+   el corte en diagonal de la ochava como forma de tarjetas y botones, luz de sodio como acento. */
+:root {
+  --night: #0E1524;
+  --night-2: #151F33;
+  --night-3: #1D2A44;
+  --cream: #F4E9D8;
+  --muted: #B9B3AA;
+  --faint: #8A8781;
+  --line: #2A3651;
+  --sodium: #FFB547;
+  --sodium-ink: #2A1A04;
+  --brick: #E0574C;
+  --siphon: #6CC4CF;
+  --ok: #7BD3A0;
+
+  --f-sign: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
+  --f-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --f-body: 'Hanken Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --f-mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  --cut: 14px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1180px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--night); color: var(--cream);
+  font: 400 16px/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+h1, h2, h3 { text-wrap: balance; }
+:focus-visible { outline: 2px solid var(--sodium); outline-offset: 3px; }
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ochava: esquina recortada */
+.cut { clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%); }
+
+.eyebrow { font: 500 12px/1.2 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--sodium); }
+.h2 { font: 800 clamp(2.4rem, 6vw, 4.2rem)/.92 var(--f-sign); text-transform: uppercase; letter-spacing: .01em; }
+.h2 em { font: italic 400 1.02em/1 var(--f-serif); text-transform: none; color: var(--sodium); letter-spacing: 0; }
+.lead { font-size: 1.12rem; color: var(--muted); max-width: 60ch; }
+.mono { font-family: var(--f-mono); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 0 22px; border: 0;
+  font: 700 15px/1 var(--f-body); letter-spacing: .01em; text-decoration: none;
+  transition: transform .25s var(--ease), background-color .25s, color .25s;
+}
+.btn--sodium { background: var(--sodium); color: var(--sodium-ink); }
+.btn--sodium:hover { background: #FFC56E; transform: translateY(-2px); }
+.btn--line { background: var(--night-3); color: var(--cream); }
+.btn--line:hover { background: #26375a; }
+.btn--sm { min-height: 38px; padding: 0 14px; font-size: 13.5px; }
+.btn .ar { transition: transform .25s var(--ease); }
+.btn:hover .ar { transform: translateX(4px); }
+.btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 13px;
+  border: 1px solid var(--line); border-radius: 999px; background: transparent;
+  font: 500 13px/1 var(--f-body); color: var(--muted); transition: all .2s;
+}
+.chip:hover { border-color: var(--faint); color: var(--cream); }
+.chip[aria-pressed="true"] { background: var(--cream); border-color: var(--cream); color: var(--night); }
+
+/* ---------- cinta de demo ---------- */
+.ribbon { background: var(--sodium); color: var(--sodium-ink); font: 500 12.5px/1.35 var(--f-mono); padding: 7px var(--gutter); text-align: center; }
+
+/* ---------- cabecera ---------- */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgba(14, 21, 36, .86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.top__in { display: flex; align-items: center; gap: 20px; min-height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+.brand__mark { width: 26px; height: 26px; background: var(--sodium); clip-path: polygon(0 0, 100% 0, 100% 62%, 62% 100%, 0 100%); }
+.brand__name { font: 900 26px/1 var(--f-sign); letter-spacing: .06em; text-transform: uppercase; }
+.nav { display: flex; gap: 4px; }
+.nav a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; text-decoration: none; font-weight: 600; font-size: 15px; color: var(--muted); border-radius: 999px; transition: color .2s, background-color .2s; }
+.nav a:hover { color: var(--cream); }
+.nav a[aria-current="page"] { color: var(--night); background: var(--cream); }
+.status { display: inline-flex; align-items: center; gap: 8px; font: 500 12.5px/1 var(--f-mono); color: var(--muted); white-space: nowrap; }
+.status__txt-short { display: none; }
+.status__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--faint); }
+.status.is-open .status__dot { background: var(--ok); box-shadow: 0 0 0 4px rgba(123, 211, 160, .18); animation: pulse 2s infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 7px rgba(123, 211, 160, 0); } }
+
+/* barra inferior (móvil) */
+.tabbar { display: none; }
+
+/* ---------- vistas ---------- */
+.view { animation: viewIn .45s var(--ease); }
+@keyframes viewIn { from { opacity: .3; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.section { padding-block: clamp(56px, 9vw, 104px); }
+.section + .section { padding-top: 0; }
+.head { display: grid; gap: 14px; margin-bottom: clamp(28px, 4vw, 44px); }
+
+/* ---------- HERO ---------- */
+.hero { position: relative; height: clamp(520px, 74vh, 700px); overflow: hidden; background: #070B14; }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero__veil { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(8, 12, 22, .92) 0%, rgba(8, 12, 22, .7) 32%, rgba(8, 12, 22, 0) 58%), linear-gradient(0deg, rgba(14, 21, 36, 1) 0%, rgba(14, 21, 36, 0) 22%); }
+.hero__in { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 18px; pointer-events: none; }
+.hero__in > * { pointer-events: auto; max-width: 540px; }
+.hero h1 { font: 900 clamp(5rem, 13vw, 10.5rem)/.8 var(--f-sign); letter-spacing: .03em; text-transform: uppercase; color: var(--cream); text-shadow: 0 0 40px rgba(255, 181, 71, .25); }
+.hero__sub { font: italic 400 clamp(1.6rem, 3vw, 2.3rem)/1.1 var(--f-serif); color: var(--cream); }
+.hero__sub b { font-weight: 400; color: var(--sodium); }
+.hero__meta { color: var(--muted); max-width: 44ch; }
+.hero__ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.hero__tools { position: absolute; right: var(--gutter); bottom: 22px; display: flex; align-items: center; gap: 10px; z-index: 2; }
+.hero__hint { font: 400 12px/1.2 var(--f-mono); color: var(--faint); }
+.toggle { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: rgba(14, 21, 36, .7); backdrop-filter: blur(6px); font: 500 12.5px/1 var(--f-mono); color: var(--cream); }
+.toggle[aria-pressed="true"] { border-color: var(--siphon); color: var(--siphon); }
+
+/* hoy */
+.today { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: -42px; position: relative; z-index: 3; }
+.today__card { background: var(--night-2); padding: 18px 20px 20px; display: grid; gap: 6px; align-content: start; }
+.today__card .k { font: 500 11.5px/1.2 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+.today__card .v { font: 800 1.6rem/1.05 var(--f-sign); text-transform: uppercase; letter-spacing: .02em; }
+.today__card .s { color: var(--muted); font-size: 14.5px; }
+.today__card .s a { color: var(--sodium); font-weight: 600; text-decoration: none; }
+.today__card--hot .v { color: var(--sodium); }
+
+/* agenda */
+.week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.day { display: grid; gap: 4px; justify-items: start; padding: 14px 12px 16px; border: 0; background: var(--night-2); text-align: left; transition: background-color .2s, transform .2s var(--ease); }
+.day:hover { background: var(--night-3); }
+.day .d { font: 500 11.5px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+.day .n { font: 800 1.15rem/1.05 var(--f-sign); text-transform: uppercase; }
+.day .h { font: 400 12.5px/1 var(--f-mono); color: var(--muted); }
+.day.is-today .d::after { content: ' · hoy'; color: var(--sodium); }
+.day[aria-pressed="true"] { background: var(--sodium); color: var(--sodium-ink); transform: translateY(-3px); }
+.day[aria-pressed="true"] .d, .day[aria-pressed="true"] .h { color: var(--sodium-ink); }
+.day.is-closed { opacity: .5; }
+.event { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 0; margin-top: 12px; background: var(--night-2); }
+.event__img { min-height: 280px; background-size: cover; background-position: center; }
+.event__body { padding: clamp(22px, 3vw, 36px); display: grid; gap: 12px; align-content: center; }
+.event__title { font: 800 clamp(2rem, 4vw, 2.8rem)/.95 var(--f-sign); text-transform: uppercase; }
+.event__when { font: 500 13px/1.3 var(--f-mono); color: var(--sodium); letter-spacing: .06em; }
+.event__body p { color: var(--muted); }
+.event__body .btn { justify-self: start; margin-top: 6px; }
+
+/* la casa */
+.house { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.collage { display: grid; grid-template-columns: 1.15fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; aspect-ratio: 1 / 1; max-width: 100%; }
+.collage img { width: 100%; height: 100%; object-fit: cover; }
+.collage img:first-child { grid-row: span 2; }
+.house__text { display: grid; gap: 18px; }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 8px; }
+.facts div { background: var(--night); padding: 16px; display: grid; gap: 4px; }
+.facts dt { font: 800 1.9rem/1 var(--f-sign); color: var(--sodium); font-variant-numeric: tabular-nums; }
+.facts dd { font-size: 14px; color: var(--muted); }
+
+/* destacados */
+.feat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.feat__card { position: relative; display: grid; gap: 10px; padding: 22px 22px 24px; background: var(--night-2); border: 0; text-align: left; transition: background-color .25s, transform .3s var(--ease); }
+.feat__card:hover { background: var(--night-3); transform: translateY(-4px); }
+.feat__card svg { width: 92px; height: 115px; }
+.feat__card .t { font: 800 1.7rem/1 var(--f-sign); text-transform: uppercase; }
+.feat__card .s { color: var(--muted); font-size: 14.5px; }
+.feat__card .p { font: 500 14px/1 var(--f-mono); color: var(--sodium); }
+
+/* reseñas */
+.quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.quote { padding: 22px; background: var(--night-2); display: grid; gap: 14px; align-content: space-between; }
+.quote p { font: italic 400 1.3rem/1.3 var(--f-serif); }
+.quote footer { display: flex; justify-content: space-between; gap: 8px; font: 400 12.5px/1.3 var(--f-mono); color: var(--faint); }
+.stars { color: var(--sodium); letter-spacing: 2px; }
+.tag-demo { display: inline-block; padding: 3px 8px; border: 1px dashed var(--faint); font: 500 11px/1 var(--f-mono); color: var(--faint); letter-spacing: .08em; text-transform: uppercase; vertical-align: middle; }
+
+/* banda final */
+.band { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: clamp(26px, 4vw, 44px); background: var(--sodium); color: var(--sodium-ink); }
+.band h3 { font: 900 clamp(2rem, 4.6vw, 3.3rem)/.92 var(--f-sign); text-transform: uppercase; }
+.band p { font-weight: 500; }
+.band .btn { background: var(--night); color: var(--cream); }
+
+/* ---------- CARTA ---------- */
+.menu-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: end; }
+.search { position: relative; }
+.search input { width: min(320px, 100%); min-height: 46px; padding: 0 16px 0 42px; background: var(--night-2); border: 1px solid var(--line); border-radius: 999px; outline: none; }
+.search input:focus { border-color: var(--sodium); }
+.search svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; stroke: var(--faint); fill: none; stroke-width: 2; }
+.tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; margin-top: 26px; border-bottom: 1px solid var(--line); }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { flex: none; min-height: 46px; padding: 0 16px; border: 0; background: transparent; color: var(--muted); font: 700 15px/1 var(--f-body); border-bottom: 2px solid transparent; margin-bottom: -5px; }
+.tab:hover { color: var(--cream); }
+.tab[aria-selected="true"] { color: var(--sodium); border-bottom-color: var(--sodium); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 26px; }
+.menu-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: clamp(20px, 3vw, 40px); align-items: start; }
+.items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.item { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 14px; align-items: start; padding: 16px; border: 0; background: var(--night-2); text-align: left; transition: background-color .2s, transform .25s var(--ease); }
+.item:hover { background: var(--night-3); transform: translateY(-2px); }
+.item svg { width: 56px; height: 70px; }
+.item__top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.item__name { font: 800 1.3rem/1.05 var(--f-sign); text-transform: uppercase; letter-spacing: .02em; }
+.item__price { font: 500 14px/1 var(--f-mono); color: var(--sodium); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.item__desc { color: var(--muted); font-size: 14px; line-height: 1.45; margin-top: 4px; }
+.item__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.tg { font: 500 10.5px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; padding: 4px 7px; border-radius: 4px; background: var(--night); color: var(--muted); }
+.tg--casa { background: rgba(255, 181, 71, .14); color: var(--sodium); }
+.tg--veg { background: rgba(123, 211, 160, .12); color: var(--ok); }
+.tg--sin { background: rgba(108, 196, 207, .13); color: var(--siphon); }
+.empty { grid-column: 1 / -1; padding: 30px; background: var(--night-2); color: var(--muted); }
+.empty b { color: var(--cream); }
+.price-note { margin-top: 16px; font: 400 12.5px/1.4 var(--f-mono); color: var(--faint); }
+
+/* recomendador */
+.quiz { position: sticky; top: 90px; padding: 24px; background: var(--night-3); display: grid; gap: 16px; }
+.quiz h3 { font: 800 1.9rem/.95 var(--f-sign); text-transform: uppercase; }
+.quiz h3 em { font: italic 400 1.05em var(--f-serif); color: var(--sodium); text-transform: none; }
+.q { display: grid; gap: 8px; }
+.q .k { font: 500 11.5px/1.2 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+.q .opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.rec { display: grid; gap: 10px; padding-top: 14px; border-top: 1px solid var(--line); }
+.rec__main { display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 12px; align-items: center; padding: 12px; background: var(--night); border: 0; text-align: left; }
+.rec__main svg { width: 54px; height: 68px; }
+.rec__main .n { font: 800 1.35rem/1 var(--f-sign); text-transform: uppercase; }
+.rec__main .w { font-size: 13.5px; color: var(--muted); }
+.rec__alt { font-size: 14px; color: var(--muted); }
+.rec__alt button { background: none; border: 0; padding: 0; color: var(--sodium); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ficha (drawer) */
+.scrim { position: fixed; inset: 0; z-index: 60; background: rgba(5, 8, 15, .6); backdrop-filter: blur(3px); opacity: 0; pointer-events: none; transition: opacity .3s; }
+.scrim.is-open { opacity: 1; pointer-events: auto; }
+.drawer { position: fixed; z-index: 61; top: 0; right: 0; bottom: 0; width: min(440px, 100%); background: var(--night-2); transform: translateX(102%); transition: transform .45s var(--ease); display: flex; flex-direction: column; padding: calc(env(safe-area-inset-top, 0px) + 18px) 24px calc(env(safe-area-inset-bottom, 0px) + 24px); overflow-y: auto; }
+.drawer.is-open { transform: none; }
+.drawer__close { align-self: flex-end; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 50%; background: transparent; font-size: 20px; line-height: 1; }
+.drawer__art { display: grid; place-items: center; padding: 10px 0 18px; background: radial-gradient(circle at 50% 60%, rgba(255, 181, 71, .16), transparent 62%); }
+.drawer__art svg { width: 150px; height: 188px; }
+.drawer__art .liq { transform-origin: 50% 100%; transform-box: fill-box; animation: fillUp 1.1s var(--ease) both .15s; }
+@keyframes fillUp { from { transform: scaleY(0); } }
+.drawer h3 { font: 900 2.6rem/.92 var(--f-sign); text-transform: uppercase; }
+.drawer .cat { font: 500 12px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; }
+.drawer .price { font: 500 1.2rem/1 var(--f-mono); color: var(--sodium); margin: 12px 0 14px; }
+.drawer .desc { color: var(--muted); }
+.drawer h4 { font: 500 11.5px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin: 22px 0 10px; }
+.ing { display: flex; flex-wrap: wrap; gap: 6px; }
+.ing li { padding: 6px 10px; background: var(--night); font-size: 14px; }
+.meters { display: grid; gap: 8px; }
+.meter { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 10px; align-items: center; font-size: 13.5px; color: var(--muted); }
+.meter i { height: 6px; background: var(--night); position: relative; overflow: hidden; }
+.meter i::after { content: ''; position: absolute; inset: 0; width: var(--v); background: var(--sodium); }
+.similar { display: grid; gap: 6px; }
+.similar button { display: flex; justify-content: space-between; gap: 10px; padding: 12px 14px; border: 0; background: var(--night); text-align: left; font-weight: 600; }
+.similar button span { font: 400 13px/1.3 var(--f-mono); color: var(--sodium); }
+.drawer__cta { margin-top: 24px; }
+
+/* ---------- RESERVA ---------- */
+.res { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: clamp(20px, 3vw, 40px); align-items: start; }
+.steps { display: grid; gap: 12px; }
+.step { padding: clamp(18px, 2.6vw, 28px); background: var(--night-2); display: grid; gap: 16px; }
+.step__h { display: flex; align-items: center; gap: 12px; }
+.step__n { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); font: 500 13px/1 var(--f-mono); color: var(--muted); flex: none; }
+.step.is-done .step__n { background: var(--ok); border-color: var(--ok); color: var(--night); }
+.step__t { font: 800 1.5rem/1 var(--f-sign); text-transform: uppercase; letter-spacing: .02em; }
+.step__v { margin-left: auto; font: 400 13px/1.2 var(--f-mono); color: var(--sodium); text-align: right; }
+
+.pax { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.stepper { display: inline-flex; align-items: center; background: var(--night); }
+.stepper button { width: 48px; height: 48px; border: 0; background: transparent; font-size: 22px; }
+.stepper button:hover { background: var(--night-3); }
+.stepper output { min-width: 56px; text-align: center; font: 800 1.8rem/1 var(--f-sign); font-variant-numeric: tabular-nums; }
+.pax small { color: var(--muted); font-size: 14px; }
+
+.cal { display: grid; gap: 10px; max-width: 460px; }
+.cal__h { display: flex; align-items: center; justify-content: space-between; }
+.cal__h strong { font: 800 1.25rem/1 var(--f-sign); text-transform: uppercase; letter-spacing: .04em; }
+.cal__nav { display: flex; gap: 6px; }
+.cal__nav button { width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: transparent; }
+.cal__nav button:disabled { opacity: .3; cursor: not-allowed; }
+.cal__grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.cal__dow { font: 500 11px/1 var(--f-mono); letter-spacing: .08em; color: var(--faint); text-align: center; padding: 6px 0; text-transform: uppercase; }
+.cal__d { position: relative; aspect-ratio: 1; border: 0; background: var(--night); font: 500 14px/1 var(--f-mono); font-variant-numeric: tabular-nums; display: grid; place-items: center; transition: background-color .15s; }
+.cal__d:hover:not(:disabled) { background: var(--night-3); }
+.cal__d:disabled { background: transparent; color: #4a5470; cursor: not-allowed; }
+.cal__d.has-ev::after { content: ''; position: absolute; bottom: 6px; width: 4px; height: 4px; border-radius: 50%; background: var(--sodium); }
+.cal__d.is-today { box-shadow: inset 0 0 0 1px var(--faint); }
+.cal__d[aria-pressed="true"] { background: var(--sodium); color: var(--sodium-ink); }
+.cal__d[aria-pressed="true"]::after { background: var(--sodium-ink); }
+.cal__ev { font-size: 14px; color: var(--muted); min-height: 1.4em; }
+.cal__ev b { color: var(--sodium); font-weight: 600; }
+
+.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 6px; }
+.slot { min-height: 50px; border: 0; background: var(--night); display: grid; place-items: center; gap: 2px; padding: 6px 4px; font: 500 15px/1 var(--f-mono); font-variant-numeric: tabular-nums; }
+.slot small { font: 400 10.5px/1 var(--f-body); color: var(--faint); }
+.slot.is-few small { color: var(--sodium); }
+.slot:hover:not(:disabled) { background: var(--night-3); }
+.slot:disabled { color: #4a5470; text-decoration: line-through; cursor: not-allowed; }
+.slot:disabled small { text-decoration: none; }
+.slot[aria-pressed="true"] { background: var(--sodium); color: var(--sodium-ink); }
+.slot[aria-pressed="true"] small { color: var(--sodium-ink); }
+.slots__empty { color: var(--muted); font-size: 14.5px; }
+
+.plan { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 18px; align-items: center; }
+.plan svg { width: 100%; height: auto; max-width: 100%; }
+.zone { cursor: pointer; }
+.zone .zf { fill: var(--night); stroke: var(--line); stroke-width: 1.5; transition: fill .2s, stroke .2s; }
+.zone .zi { fill: none; stroke: var(--faint); stroke-width: 1.5; transition: stroke .2s; }
+.zone .zl { fill: var(--muted); font: 500 11px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; pointer-events: none; }
+.zone:hover .zf { fill: var(--night-3); }
+.zone.is-on .zf { fill: rgba(255, 181, 71, .2); stroke: var(--sodium); }
+.zone.is-on .zi { stroke: var(--sodium); }
+.zone.is-on .zl { fill: var(--sodium); }
+.zone.is-off { cursor: not-allowed; opacity: .35; }
+.zone:focus-visible { outline: none; }
+.zone:focus-visible .zf { stroke: var(--sodium); stroke-dasharray: 4 3; }
+.zlist { display: grid; gap: 6px; }
+.zbtn { display: grid; gap: 2px; padding: 12px 14px; border: 0; background: var(--night); text-align: left; transition: background-color .15s; }
+.zbtn b { font: 800 1.1rem/1 var(--f-sign); text-transform: uppercase; letter-spacing: .03em; }
+.zbtn span { font-size: 13px; color: var(--muted); }
+.zbtn:hover:not(:disabled) { background: var(--night-3); }
+.zbtn[aria-pressed="true"] { background: var(--sodium); color: var(--sodium-ink); }
+.zbtn[aria-pressed="true"] span { color: var(--sodium-ink); }
+.zbtn:disabled { opacity: .4; cursor: not-allowed; }
+
+.fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.field { display: grid; gap: 6px; }
+.field--full { grid-column: 1 / -1; }
+.field label, .field .lbl { font: 500 11.5px/1.2 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+.field input, .field textarea, .field select { width: 100%; min-height: 48px; padding: 12px 14px; background: var(--night); border: 1px solid var(--line); outline: none; border-radius: 0; }
+.field textarea { min-height: 84px; resize: vertical; }
+.field input:focus, .field textarea:focus { border-color: var(--sodium); }
+.field.is-bad input { border-color: var(--brick); }
+.field .err { font-size: 13px; color: var(--brick); min-height: 1em; }
+.occasions { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ticket */
+.ticket { position: sticky; top: 90px; background: var(--cream); color: #1B1712; padding: 24px 22px 20px; font-family: var(--f-mono); }
+.ticket::before { content: ''; position: absolute; left: 0; right: 0; top: -8px; height: 8px; background: radial-gradient(circle at 6px 0, transparent 6px, var(--cream) 6.5px) 0 0 / 12px 8px repeat-x; }
+.ticket h3 { font: 900 1.9rem/1 var(--f-sign); text-transform: uppercase; letter-spacing: .05em; }
+.ticket .sub { font-size: 12px; color: #6d655a; margin-top: 4px; }
+.ticket dl { display: grid; gap: 0; margin: 18px 0; border-top: 1px dashed #b6ab98; }
+.ticket dl div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px dashed #b6ab98; font-size: 14px; }
+.ticket dt { color: #6d655a; text-transform: uppercase; font-size: 11.5px; letter-spacing: .1em; padding-top: 2px; }
+.ticket dd { text-align: right; font-weight: 500; }
+.ticket dd.empty-v { color: #a39a8b; }
+.ticket .btn { width: 100%; background: #1B1712; color: var(--cream); }
+.ticket .btn:hover:not(:disabled) { background: #000; }
+.ticket .note { font-size: 11.5px; color: #6d655a; margin-top: 12px; line-height: 1.5; }
+.ticket .missing { font-size: 12.5px; color: #8a3a2c; margin-top: 10px; min-height: 1em; }
+
+.done { padding: clamp(24px, 4vw, 44px); background: var(--night-2); display: grid; gap: 18px; }
+.done__code { font: 900 clamp(2.6rem, 7vw, 4.6rem)/.9 var(--f-sign); color: var(--sodium); letter-spacing: .04em; }
+.done pre { white-space: pre-wrap; margin: 0; padding: 16px; background: var(--night); font: 400 13.5px/1.55 var(--f-mono); color: var(--cream); }
+.done .row { display: flex; flex-wrap: wrap; gap: 10px; }
+.done .ok { display: inline-flex; align-items: center; gap: 10px; font: 500 13px/1 var(--f-mono); color: var(--ok); }
+.last { margin-bottom: 14px; padding: 14px 18px; background: var(--night-2); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; align-items: center; font-size: 14.5px; color: var(--muted); }
+.last b { color: var(--cream); }
+
+/* ---------- CONTACTO ---------- */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.panel { padding: clamp(20px, 3vw, 30px); background: var(--night-2); display: grid; gap: 16px; align-content: start; }
+.panel h3 { font: 800 1.6rem/1 var(--f-sign); text-transform: uppercase; letter-spacing: .02em; }
+.map { position: relative; background: #0A101C; }
+.map svg { width: 100%; height: auto; display: block; }
+.map .st { stroke: #24304a; stroke-width: 26; }
+.map .sl { fill: #6e7894; font: 500 10px var(--f-mono); letter-spacing: .14em; text-transform: uppercase; }
+.addr { display: grid; gap: 4px; }
+.addr b { font: 800 1.5rem/1.05 var(--f-sign); text-transform: uppercase; }
+.addr span { color: var(--muted); }
+.lines { display: grid; }
+.line { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.line:first-child { border-top: 1px solid var(--line); }
+.line .k { font: 500 11.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+.line .v { font-weight: 600; overflow-wrap: anywhere; user-select: all; }
+.copy { min-height: 32px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; background: transparent; font: 500 12px/1 var(--f-mono); color: var(--muted); }
+.copy:hover { color: var(--cream); border-color: var(--faint); }
+.copy.is-ok { color: var(--ok); border-color: var(--ok); }
+.hours { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.hours td { padding: 11px 0; border-bottom: 1px solid var(--line); }
+.hours td:last-child { text-align: right; font-family: var(--f-mono); font-size: 14px; }
+.hours tr.is-today td { color: var(--sodium); font-weight: 700; }
+.hours tr.is-closed td:last-child { color: var(--faint); }
+.faq { display: grid; gap: 6px; }
+.faq details { background: var(--night-2); }
+.faq summary { list-style: none; cursor: pointer; padding: 16px 20px; font-weight: 700; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; font: 400 22px/1 var(--f-mono); color: var(--sodium); transition: transform .25s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding: 0 20px 18px; color: var(--muted); max-width: 70ch; }
+.sent { display: grid; gap: 10px; padding: 18px; background: var(--night); }
+.sent b { font: 800 1.4rem/1 var(--f-sign); text-transform: uppercase; color: var(--ok); }
+.sent p { color: var(--muted); font-size: 14.5px; }
+
+/* ---------- pie ---------- */
+.foot { border-top: 1px solid var(--line); padding-block: 40px 48px; }
+.foot__in { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 28px; }
+.foot__brand { font: 900 3.4rem/.85 var(--f-sign); letter-spacing: .05em; text-transform: uppercase; color: var(--sodium); }
+.foot p, .foot li { color: var(--muted); font-size: 14.5px; }
+.foot h4 { font: 500 11.5px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin-bottom: 12px; }
+.foot nav { display: grid; gap: 6px; }
+.foot nav a { text-decoration: none; color: var(--muted); }
+.foot nav a:hover { color: var(--cream); }
+.foot__legal { margin-top: 30px; font: 400 12px/1.5 var(--f-mono); color: var(--faint); }
+
+/* toast */
+.toast { visibility: hidden; position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 24px); z-index: 80; transform: translate(-50%, 140%); padding: 12px 18px; background: var(--cream); color: var(--night); font-weight: 600; font-size: 14.5px; transition: transform .35s var(--ease); max-width: calc(100% - 32px); }
+.toast.is-on { transform: translate(-50%, 0); visibility: visible; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1020px) {
+  .menu-grid, .res { grid-template-columns: minmax(0, 1fr); }
+  .quiz, .ticket { position: relative; top: 0; }
+  .feat, .quotes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .nav, .top .btn { display: none; }
+  .status { margin-left: auto; }
+  .brand { margin-right: 0; }
+  .tabbar {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+    padding: 6px 6px calc(env(safe-area-inset-bottom, 0px) + 6px); background: rgba(14, 21, 36, .94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-top: 1px solid var(--line);
   }
-  </script>
-  <script defer src="lib/gsap.min.js?v=20261005"></script>
-  <script defer src="lib/ScrollTrigger.min.js?v=20261005"></script>
-  <script defer src="lib/manifest.js?v=20261005"></script>
-  <script defer src="main.js?v=20261005"></script>
+  .tabbar a { display: grid; justify-items: center; gap: 3px; padding: 7px 0 5px; text-decoration: none; font: 600 11.5px/1 var(--f-body); color: var(--faint); border-radius: 10px; }
+  .tabbar svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .tabbar a[aria-current="page"] { color: var(--sodium); background: rgba(255, 181, 71, .1); }
+  body { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 72px); }
+  .toast { bottom: calc(env(safe-area-inset-bottom, 0px) + 84px); }
+  .hero { height: auto; }
+  .hero canvas { position: relative; height: 330px; }
+  .hero__veil { background: linear-gradient(0deg, rgba(14, 21, 36, 1) 0%, rgba(14, 21, 36, 0) 40%); height: 330px; }
+  .hero__in { padding-block: 0 56px; margin-top: -40px; }
+  .hero__tools { top: 14px; bottom: auto; right: 14px; }
+  .hero__hint { display: none; }
+  .today { grid-template-columns: minmax(0, 1fr); margin-top: 0; }
+  .day .n { font-size: 1rem; overflow-wrap: anywhere; }
+  .week { grid-template-columns: repeat(7, minmax(118px, 1fr)); overflow-x: auto; scrollbar-width: none; padding-bottom: 6px; }
+  .week::-webkit-scrollbar { display: none; }
+  .event, .house, .contact, .plan { grid-template-columns: minmax(0, 1fr); }
+  .event__img { min-height: 200px; }
+  .feat, .quotes { grid-template-columns: minmax(0, 1fr); }
+  .items { grid-template-columns: minmax(0, 1fr); }
+  .menu-top { grid-template-columns: minmax(0, 1fr); }
+  .search input { width: 100%; }
+  .foot__in { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 520px) {
+  .fields { grid-template-columns: minmax(0, 1fr); }
+  .line { grid-template-columns: 80px minmax(0, 1fr) auto; }
+  .status__txt { display: none; }
+  .status.is-open .status__txt-short, .status__txt-short { display: inline; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+</style>
 </head>
 <body>
-  <a class="skip" href="#reserva">Saltar a reservar mesa</a>
 
-  <!-- ============ SPLASH ============ -->
-  <div class="splash" aria-hidden="true">
-    <div class="splash__word">
-      <span style="--i:0">J</span><span style="--i:1">E</span><span style="--i:2">R</span><span style="--i:3">O</span><span style="--i:4">M</span><span style="--i:5">E</span>
-    </div>
-    <div class="splash__bar"><i></i></div>
-    <p class="splash__meta">Bar de copas · Palermo · EST. 2024</p>
-  </div>
+<div class="ribbon" role="note">Propuesta de ejemplo: “Ochava” es un bar ficticio. Así podría verse la web propia de tu bar.</div>
 
-  <!-- ============ FONDO: aurora + grano ============ -->
-  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- ============ CURSOR ============ -->
-  <div class="cursor" aria-hidden="true"><div class="cursor__ring"><span class="cursor__label"></span></div><div class="cursor__dot"></div></div>
-
-  <!-- ============ MARCA LATERAL ============ -->
-  <div class="sidemark" aria-hidden="true"><span class="sidemark__dot"></span><span>ABIERTO · <span data-b-text="hoursShort">MIÉ → DOM · 19:00 → 02:30</span></span></div>
-
-  <!-- ============ NAV ============ -->
-  <header class="nav">
-    <a class="nav__logo" href="#top" data-cursor="arriba" aria-label="Jerome, volver al inicio">
-      <span class="nav__name">Jerome</span><span class="nav__est">EST. 2024</span>
-    </a>
-    <nav class="nav__links" aria-label="Secciones">
-      <a href="#local"><sup>01</sup>El local</a>
-      <a href="#carta"><sup>02</sup>Carta</a>
-      <a href="#musica"><sup>03</sup>Música</a>
-      <a href="#galeria"><sup>04</sup>Galería</a>
-      <a href="#privados"><sup>05</sup>Privados</a>
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#inicio" data-go="inicio" aria-label="Ochava, ir al inicio"><span class="brand__mark" aria-hidden="true"></span><span class="brand__name">Ochava</span></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#inicio" data-go="inicio">Inicio</a>
+      <a href="#menu" data-go="menu">Carta</a>
+      <a href="#reserva" data-go="reserva">Reservas</a>
+      <a href="#contacto" data-go="contacto">Contacto</a>
     </nav>
-    <a class="nav__cta btn btn--pill" href="#reserva" data-cursor="reservar">Reservar <span class="arrow">→</span></a>
-    <button class="nav__burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
-  </header>
-
-  <div class="menu" id="menu" aria-hidden="true">
-    <nav aria-label="Menú móvil">
-      <a href="#local"><sup>01</sup>El local</a>
-      <a href="#carta"><sup>02</sup>Carta</a>
-      <a href="#musica"><sup>03</sup>Música</a>
-      <a href="#galeria"><sup>04</sup>Galería</a>
-      <a href="#privados"><sup>05</sup>Privados</a>
-      <a href="#reserva" class="menu__cta"><sup>06</sup>Reservar mesa →</a>
-    </nav>
-    <p class="menu__meta"><span data-b-text="address">Malabia 1401</span> · <span data-b-text="city">Palermo · CABA</span><br><span data-b-text="hours">Miércoles a domingo · 19:00 → 02:30</span></p>
+    <span class="status" id="status"><span class="status__dot"></span><span class="status__txt">Calculando horario…</span><span class="status__txt-short"></span></span>
+    <a class="btn btn--sodium btn--sm cut" href="#reserva" data-go="reserva">Reservar mesa</a>
   </div>
+</header>
 
-  <main id="top">
-    <!-- ============ HERO ============ -->
-    <section class="hero" data-tone="pink" aria-label="Portada">
-      <div class="hero__media" aria-hidden="true">
-        <img class="hero__img" src="assets/img/hero.webp?v=20261005" alt="" fetchpriority="high" decoding="async">
-        <div class="hero__veil"></div>
-      </div>
-      <div class="hero__inner">
-        <p class="hero__kicker"><span>Bar de copas · Coctelería de autor</span><span><span data-b-text="city">Palermo · CABA</span> · Buenos Aires</span></p>
-        <h1 class="hero__title" aria-label="Jerome">
-          <span class="hero__line" aria-hidden="true"><span class="hero__char" style="--i:0">J</span><span class="hero__char" style="--i:1">e</span><span class="hero__char" style="--i:2">r</span></span>
-          <span class="hero__line hero__line--off" aria-hidden="true"><em><span class="hero__char" style="--i:3">o</span><span class="hero__char" style="--i:4">m</span><span class="hero__char" style="--i:5">e</span><span class="hero__char hero__char--dot" style="--i:6">.</span></em></span>
-        </h1>
-        <p class="hero__tagline"><em data-b-text="tagline">Donde la noche baja la voz.</em></p>
-        <p class="hero__slogan" data-b-text="slogan">El mejor lugar para compartir momentos.</p>
-        <div class="hero__ctas">
-          <a class="btn btn--primary" href="#reserva" data-cursor="reservar">Reservar mesa <span class="arrow">→</span></a>
-          <a class="btn btn--ghost" href="#carta" data-cursor="leer">Ver la carta</a>
-        </div>
-      </div>
-      <div class="hero__meta" aria-hidden="true">
-        <span>Mié → Dom</span><span>19:00 → 02:30</span><span data-b-text="address">Malabia 1401</span>
-      </div>
-      <a class="hero__scroll" href="#local" aria-label="Bajar a El local"><span>Bajá</span><i></i></a>
-    </section>
+<main id="main">
 
-    <!-- ============ MARQUEE NEÓN ============ -->
-    <div class="neon-marquee" aria-label="Coctelería de autor. Sesión de DJ de jueves a domingo. Malabia 1401, Palermo. Aforo íntimo de 60 personas. Donde la noche baja la voz.">
-      <div class="neon-marquee__track" aria-hidden="true">
-        <span class="neon-marquee__run"><span class="p">Coctelería de autor</span><i>✦</i><span class="c">Sesión de DJ jue → dom</span><i>✦</i><span class="p">Malabia 1401 · Palermo</span><i>✦</i><span class="c">Aforo íntimo · 60 personas</span><i>✦</i><span class="p">Donde la noche baja la voz</span><i>✦</i></span>
-        <span class="neon-marquee__run"><span class="p">Coctelería de autor</span><i>✦</i><span class="c">Sesión de DJ jue → dom</span><i>✦</i><span class="p">Malabia 1401 · Palermo</span><i>✦</i><span class="c">Aforo íntimo · 60 personas</span><i>✦</i><span class="p">Donde la noche baja la voz</span><i>✦</i></span>
+<!-- ======================= INICIO ======================= -->
+<section class="view" data-view="inicio" aria-label="Inicio">
+  <div class="hero">
+    <canvas id="scene" aria-label="Ilustración animada: la esquina del bar de noche, con la puerta en la ochava, ventanas encendidas y llovizna" role="img"></canvas>
+    <div class="hero__veil"></div>
+    <div class="wrap hero__in">
+      <p class="eyebrow">Bar de esquina · Palermo, Buenos Aires</p>
+      <h1>Ochava</h1>
+      <p class="hero__sub">La esquina donde <b>se queda la noche.</b></p>
+      <p class="hero__meta">Vermú con sifón, cócteles de autor y música en vivo en Costa Rica y Gurruchaga. Abrimos de martes a domingo.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--sodium cut" href="#reserva" data-go="reserva">Reservar mesa <span class="ar">→</span></a>
+        <a class="btn btn--line cut" href="#menu" data-go="menu">Ver la carta</a>
       </div>
     </div>
+    <div class="hero__tools">
+      <span class="hero__hint">Tocá una ventana</span>
+      <button class="toggle" id="rainBtn" type="button" aria-pressed="true">Llovizna: sí</button>
+    </div>
+  </div>
 
-    <!-- ============ 01 · EL LOCAL ============ -->
-    <section class="local section" id="local" data-tone="gold">
-      <span class="watermark" aria-hidden="true">01</span>
-      <div class="local__grid">
-        <div class="collage reveal" aria-label="Fotos del local">
-          <figure class="collage__item collage__item--a"><img src="assets/img/local-1.webp" alt="Contrabarra de botellas retroiluminadas en luz cálida" loading="lazy" decoding="async"></figure>
-          <figure class="collage__item collage__item--b"><img src="assets/img/local-2.webp" alt="Letrero de neón rosa con forma de copa sobre ladrillo" loading="lazy" decoding="async"></figure>
-          <figure class="collage__item collage__item--c"><img src="assets/img/local-3.webp" alt="Copa coupe sobre la barra de latón bajo una lámpara" loading="lazy" decoding="async"></figure>
-          <span class="tape" aria-hidden="true">EST. 2024</span>
-        </div>
-        <div class="local__text">
-          <p class="eyebrow reveal"><span class="eyebrow__n">01</span> El local</p>
-          <h2 class="h2" data-split>Un bar para que la noche <em>dure</em> de <em>verdad.</em></h2>
-          <aside class="local__aside reveal">
-            <p class="label">EST · 2024 · BA</p>
-            <blockquote>“<span data-b-text="slogan">El mejor lugar para compartir momentos.</span>”</blockquote>
-            <p class="meta"><span data-b-text="address">Malabia 1401</span> — <span data-b-text="city">Palermo · CABA</span></p>
-          </aside>
-          <p class="lead reveal">Un sitio para empezar la noche con criterio. Buena copa, buena música, luz baja.</p>
-          <p class="body reveal">Terciopelo, latón y una barra que se ilumina desde atrás. Jerome no es una discoteca ni la coctelería de moda: es un bar de copas con la música puesta con criterio, una carta corta de autor y sitio para sesenta personas. De jueves a domingo la cabina manda; el resto de la semana, se charla.</p>
-          <dl class="facts reveal">
-            <div><dt>Aforo</dt><dd data-b-text="capacity">60 personas</dd></div>
-            <div><dt>Apertura</dt><dd>Miércoles a domingo</dd></div>
-            <div><dt>Horario</dt><dd>19:00 → 02:30</dd></div>
-            <div><dt>Reserva</dt><dd>Recomendada jue–sáb</dd></div>
-          </dl>
-        </div>
+  <div class="wrap">
+    <div class="today" id="today"></div>
+  </div>
+
+  <div class="section">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Agenda</p>
+        <h2 class="h2">Esta semana <em>en la esquina</em></h2>
       </div>
-    </section>
+      <div class="week" id="week" role="group" aria-label="Días de la semana"></div>
+      <article class="event cut" id="event" aria-live="polite"></article>
+    </div>
+  </div>
 
-    <!-- ============ 02 · CÓCTELES ============ -->
-    <section class="cocktails" id="carta" data-tone="pink" aria-label="Carta de cócteles">
-      <div class="cocktails__head">
+  <div class="section">
+    <div class="wrap house">
+      <div class="collage">
+        <img src="img/sifon.webp" alt="Sifón de soda y vaso de vermú con naranja sobre la barra de mármol" loading="lazy" width="900" height="1100">
+        <img src="img/barra.webp" alt="Contrabarra con botellas iluminadas en ámbar" loading="lazy" width="1200" height="900">
+        <img src="img/lamparas.webp" alt="Lámparas colgantes de luz cálida en el salón" loading="lazy" width="1000" height="1200">
+      </div>
+      <div class="house__text">
+        <p class="eyebrow">La casa</p>
+        <h2 class="h2">Un bar de barrio <em>con barra de verdad</em></h2>
+        <p class="lead">Ochava ocupa la esquina de un edificio de 1928, con la puerta en el corte de la ochava, como los almacenes de antes. Adentro: barra de mármol, vermú tirado de barril, una carta corta de cócteles y música elegida con cuidado.</p>
+        <dl class="facts">
+          <div><dt>3</dt><dd>vermús de la casa, servidos con sifón</dd></div>
+          <div><dt>62</dt><dd>lugares entre barra, salón y vereda</dd></div>
+          <div><dt>4</dt><dd>noches de música por semana</dd></div>
+          <div><dt>23:30</dt><dd>cierra la cocina los fines de semana</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">De la barra</p>
+        <h2 class="h2">Los que <em>más se piden</em></h2>
+      </div>
+      <div class="feat" id="feat"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Reseñas <span class="tag-demo">Ejemplo</span></p>
+        <h2 class="h2">Lo que <em>dice la gente</em></h2>
+        <p class="lead">En la web real, acá se muestran reseñas reales de Google o Instagram. Estas son de muestra.</p>
+      </div>
+      <div class="quotes">
+        <figure class="quote"><p>“Pedí el vermú con sifón y me sentí en lo de mi abuelo, pero con mejor música.”</p><footer><span>Reseña de ejemplo</span><span class="stars" aria-label="5 de 5">★★★★★</span></footer></figure>
+        <figure class="quote"><p>“El jueves de jazz es lo mejor de la semana. Reservá, porque la barra se llena temprano.”</p><footer><span>Reseña de ejemplo</span><span class="stars" aria-label="5 de 5">★★★★★</span></footer></figure>
+        <figure class="quote"><p>“Las bravas y un Garúa en la vereda, mirando la esquina. No necesito más.”</p><footer><span>Reseña de ejemplo</span><span class="stars" aria-label="4 de 5">★★★★☆</span></footer></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="wrap">
+      <div class="band cut">
         <div>
-          <p class="eyebrow"><span class="eyebrow__n">02</span> La carta</p>
-          <h2 class="cocktails__title">Diez copas. <em>Una noche larga.</em></h2>
+          <h3>¿Venís esta noche?</h3>
+          <p>Elegí día, hora y mesa en menos de un minuto.</p>
         </div>
-        <div class="cocktails__ctrl">
-          <p class="cocktails__legend"><span class="tag tag--casa">Casa</span><span class="tag">Temporada</span></p>
-          <div class="progress" aria-hidden="true">
-            <span class="progress__num"><b data-cur>01</b> / <span data-total>10</span></span>
-            <span class="progress__bar"><i></i></span>
-          </div>
-          <div class="cocktails__arrows">
-            <button type="button" class="arrow-btn" data-carousel="-1" aria-label="Cóctel anterior" data-cursor="ver">←</button>
-            <button type="button" class="arrow-btn" data-carousel="1" aria-label="Cóctel siguiente" data-cursor="ver">→</button>
-          </div>
+        <a class="btn cut" href="#reserva" data-go="reserva">Reservar ahora <span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CARTA ======================= -->
+<section class="view" data-view="menu" aria-label="Carta" hidden>
+  <div class="section">
+    <div class="wrap">
+      <div class="menu-top">
+        <div class="head" style="margin:0">
+          <p class="eyebrow">La carta</p>
+          <h2 class="h2">Para tomar <em>y para picar</em></h2>
         </div>
+        <label class="search" for="q"><span class="sr">Buscar en la carta</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="Buscar: gin, vermú, papas…" autocomplete="off">
+        </label>
       </div>
-      <div class="cocktails__track" data-mount="cocktails" tabindex="0" aria-label="Cócteles: deslizá para ver las diez copas">
-        <article class="cocktail cocktail--casa" data-index="0" style="--accent:#FF3D8B;--liquid:#7a2a1c" aria-label="Penumbra, 1 de 10"><span class="cocktail__num" aria-hidden="true">01</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="coupe" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa coupe con Penumbra"></svg><span class="cocktail__glassname">Copa coupe</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag tag--casa">Casa</span><span class="cocktail__count">01 / 10</span></p><h3 class="cocktail__name">Penumbra</h3><p class="cocktail__sub">La copa de la casa</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Mezcal ahumado</li><li style="--k:1"><span>02</span>Vermut oscuro</li><li style="--k:2"><span>03</span>Toque de café</li></ul><p class="cocktail__desc">Ahumado, amargo y largo. Un sorbo lento para empezar la noche en su tono justo. Copa coupe sobre hielo de mano.</p></div></article>
-        <article class="cocktail cocktail--casa" data-index="1" style="--accent:#3DE2FF;--liquid:#3DE2FF" aria-label="Neón, 2 de 10"><span class="cocktail__num" aria-hidden="true">02</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="highball" viewBox="0 0 400 520" role="img" aria-label="Dibujo de vaso highball con Neón"></svg><span class="cocktail__glassname">Vaso highball</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag tag--casa">Casa</span><span class="cocktail__count">02 / 10</span></p><h3 class="cocktail__name">Neón</h3><p class="cocktail__sub">Gin tonic de autor</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Ginebra cítrica</li><li style="--k:1"><span>02</span>Tónica seca</li><li style="--k:2"><span>03</span>Piel de pomelo</li></ul><p class="cocktail__desc">Burbuja viva, cítrico afilado y un brillo que recuerda al letrero de la entrada. Highball alto, hielo limpio.</p></div></article>
-        <article class="cocktail cocktail--casa" data-index="2" style="--accent:#C9A35B;--liquid:#1c0e08" aria-label="Medianoche, 3 de 10"><span class="cocktail__num" aria-hidden="true">03</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="martini" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa martini con Medianoche"></svg><span class="cocktail__glassname">Copa martini</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag tag--casa">Casa</span><span class="cocktail__count">03 / 10</span></p><h3 class="cocktail__name">Medianoche</h3><p class="cocktail__sub">Espresso martini</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Espresso reciente</li><li style="--k:1"><span>02</span>Vodka</li><li style="--k:2"><span>03</span>Licor de café</li></ul><p class="cocktail__desc">Café recién hecho y vodka helado, batido hasta dejar la espuma del color del cobre. Para la hora en que la pista calienta.</p></div></article>
-        <article class="cocktail cocktail--casa" data-index="3" style="--accent:#FF3D8B;--liquid:#b73422" aria-label="Brasa, 4 de 10"><span class="cocktail__num" aria-hidden="true">04</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="old_fashioned" viewBox="0 0 400 520" role="img" aria-label="Dibujo de vaso old fashioned con Brasa"></svg><span class="cocktail__glassname">Vaso old fashioned</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag tag--casa">Casa</span><span class="cocktail__count">04 / 10</span></p><h3 class="cocktail__name">Brasa</h3><p class="cocktail__sub">Negroni con tequila</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Tequila reposado</li><li style="--k:1"><span>02</span>Campari</li><li style="--k:2"><span>03</span>Vermut rojo</li></ul><p class="cocktail__desc">Negroni reescrito con el ahumado del tequila reposado. Old fashioned, hielo macizo, piel de naranja quemada al pase.</p></div></article>
-        <article class="cocktail" data-index="4" style="--accent:#C9A35B;--liquid:#3a1a0e" aria-label="Vermut Negro, 5 de 10"><span class="cocktail__num" aria-hidden="true">05</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="rocks" viewBox="0 0 400 520" role="img" aria-label="Dibujo de vaso rocks con Vermut Negro"></svg><span class="cocktail__glassname">Vaso rocks</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">05 / 10</span></p><h3 class="cocktail__name">Vermut Negro</h3><p class="cocktail__sub">Vermut largo de la casa</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Vermut casa</li><li style="--k:1"><span>02</span>Naranja confitada</li><li style="--k:2"><span>03</span>Hielo macizo</li></ul><p class="cocktail__desc">Vermut servido sobre hielo de mano, con una naranja confitada en la propia barra. Pensado para los que entran y aún no piden.</p></div></article>
-        <article class="cocktail" data-index="5" style="--accent:#FF3D8B;--liquid:#cc4a26" aria-label="Sereno, 6 de 10"><span class="cocktail__num" aria-hidden="true">06</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="wine" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa de vino con Sereno"></svg><span class="cocktail__glassname">Copa de vino</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">06 / 10</span></p><h3 class="cocktail__name">Sereno</h3><p class="cocktail__sub">Spritz oscuro</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Aperol</li><li style="--k:1"><span>02</span>Cava seco</li><li style="--k:2"><span>03</span>Soda</li></ul><p class="cocktail__desc">Spritz reescrito en clave nocturna. Aperol, cava seco y soda fría. Para empezar sin pesar.</p></div></article>
-        <article class="cocktail" data-index="6" style="--accent:#C9A35B;--liquid:#e8c780" aria-label="Aurora, 7 de 10"><span class="cocktail__num" aria-hidden="true">07</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="flute" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa flauta con Aurora"></svg><span class="cocktail__glassname">Copa flauta</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">07 / 10</span></p><h3 class="cocktail__name">Aurora</h3><p class="cocktail__sub">French 75 con vermut</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Cava brut</li><li style="--k:1"><span>02</span>Ginebra</li><li style="--k:2"><span>03</span>Limón</li></ul><p class="cocktail__desc">Cava, ginebra y un toque de vermut blanco. Sube rápido, baja despacio.</p></div></article>
-        <article class="cocktail" data-index="7" style="--accent:#C9A35B;--liquid:#1a0d05" aria-label="Última Hora, 8 de 10"><span class="cocktail__num" aria-hidden="true">08</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="mug" viewBox="0 0 400 520" role="img" aria-label="Dibujo de taza pequeña con Última Hora"></svg><span class="cocktail__glassname">Taza pequeña</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">08 / 10</span></p><h3 class="cocktail__name">Última Hora</h3><p class="cocktail__sub">Café final de noche</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Espresso</li><li style="--k:1"><span>02</span>Ron añejo</li><li style="--k:2"><span>03</span>Crema</li></ul><p class="cocktail__desc">Para los que se quedan al cierre. Espresso, ron añejo y una nube de crema. Servido en taza pequeña.</p></div></article>
-        <article class="cocktail" data-index="8" style="--accent:#3DE2FF;--liquid:#d8c272" aria-label="Veneno, 9 de 10"><span class="cocktail__num" aria-hidden="true">09</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="snifter" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa balón con Veneno"></svg><span class="cocktail__glassname">Copa balón</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">09 / 10</span></p><h3 class="cocktail__name">Veneno</h3><p class="cocktail__sub">Pisco sour de la casa</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Pisco</li><li style="--k:1"><span>02</span>Limón</li><li style="--k:2"><span>03</span>Cardamomo</li></ul><p class="cocktail__desc">Pisco peruano, limón y un golpe de cardamomo verde. Suave en boca, largo en cabeza.</p></div></article>
-        <article class="cocktail" data-index="9" style="--accent:#FF3D8B;--liquid:#a8341a" aria-label="Vértigo, 10 de 10"><span class="cocktail__num" aria-hidden="true">10</span><div class="cocktail__stage" data-cursor="girar"><svg class="glass" data-glass="hurricane" viewBox="0 0 400 520" role="img" aria-label="Dibujo de copa hurricane con Vértigo"></svg><span class="cocktail__glassname">Copa hurricane</span></div><div class="cocktail__body"><p class="cocktail__series"><span class="tag">Temporada</span><span class="cocktail__count">10 / 10</span></p><h3 class="cocktail__name">Vértigo</h3><p class="cocktail__sub">Mai tai oscuro</p><ul class="cocktail__ing" aria-label="Ingredientes"><li style="--k:0"><span>01</span>Ron añejo</li><li style="--k:1"><span>02</span>Curaçao seco</li><li style="--k:2"><span>03</span>Lima</li></ul><p class="cocktail__desc">Mai tai reescrito con ron añejo y curaçao seco. La copa que se pide cuando ya hay confianza.</p></div></article>
+      <div class="tabs" id="tabs" role="tablist" aria-label="Categorías"></div>
+      <div class="filters" id="filters" role="group" aria-label="Filtros">
+        <button class="chip" type="button" data-f="casa" aria-pressed="false">De la casa</button>
+        <button class="chip" type="button" data-f="sin" aria-pressed="false">Sin alcohol</button>
+        <button class="chip" type="button" data-f="veg" aria-pressed="false">Veggie</button>
+        <button class="chip" type="button" data-f="tacc" aria-pressed="false">Sin TACC</button>
+        <button class="chip" type="button" data-f="compartir" aria-pressed="false">Para compartir</button>
       </div>
-      <p class="cocktails__hint" aria-hidden="true"><span class="only-touch">Deslizá con el dedo →</span><span class="only-mouse">Seguí bajando · la carta avanza sola →</span></p>
-      <div class="ing-marquee" aria-hidden="true"><div class="ing-marquee__inner" data-mount="ingredients"><div class="ing-marquee__run"><span>Mezcal ahumado</span><i>✦</i><span>Vermut oscuro</span><i>✦</i><span>Toque de café</span><i>✦</i><span>Ginebra cítrica</span><i>✦</i><span>Tónica seca</span><i>✦</i><span>Piel de pomelo</span><i>✦</i><span>Espresso reciente</span><i>✦</i><span>Vodka</span><i>✦</i><span>Licor de café</span><i>✦</i><span>Tequila reposado</span><i>✦</i><span>Campari</span><i>✦</i><span>Vermut rojo</span><i>✦</i><span>Vermut casa</span><i>✦</i><span>Naranja confitada</span><i>✦</i><span>Hielo macizo</span><i>✦</i><span>Aperol</span><i>✦</i><span>Cava seco</span><i>✦</i><span>Soda</span><i>✦</i><span>Cava brut</span><i>✦</i><span>Ginebra</span><i>✦</i><span>Limón</span><i>✦</i><span>Espresso</span><i>✦</i><span>Ron añejo</span><i>✦</i><span>Crema</span><i>✦</i><span>Pisco</span><i>✦</i><span>Cardamomo</span><i>✦</i><span>Curaçao seco</span><i>✦</i><span>Lima</span><i>✦</i></div><div class="ing-marquee__run" aria-hidden="true"><span>Mezcal ahumado</span><i>✦</i><span>Vermut oscuro</span><i>✦</i><span>Toque de café</span><i>✦</i><span>Ginebra cítrica</span><i>✦</i><span>Tónica seca</span><i>✦</i><span>Piel de pomelo</span><i>✦</i><span>Espresso reciente</span><i>✦</i><span>Vodka</span><i>✦</i><span>Licor de café</span><i>✦</i><span>Tequila reposado</span><i>✦</i><span>Campari</span><i>✦</i><span>Vermut rojo</span><i>✦</i><span>Vermut casa</span><i>✦</i><span>Naranja confitada</span><i>✦</i><span>Hielo macizo</span><i>✦</i><span>Aperol</span><i>✦</i><span>Cava seco</span><i>✦</i><span>Soda</span><i>✦</i><span>Cava brut</span><i>✦</i><span>Ginebra</span><i>✦</i><span>Limón</span><i>✦</i><span>Espresso</span><i>✦</i><span>Ron añejo</span><i>✦</i><span>Crema</span><i>✦</i><span>Pisco</span><i>✦</i><span>Cardamomo</span><i>✦</i><span>Curaçao seco</span><i>✦</i><span>Lima</span><i>✦</i></div></div></div>
-    </section>
-
-    <!-- ============ 03 · MÚSICA ============ -->
-    <section class="music section" id="musica" data-tone="cyan">
-      <span class="watermark" aria-hidden="true">03</span>
-      <div class="music__head">
-        <p class="eyebrow reveal"><span class="eyebrow__n">03</span> Música</p>
-        <h2 class="h2" data-split>De jueves a domingo, <em>la cabina manda.</em></h2>
-        <p class="lead reveal">Sesiones de DJ con la música puesta con criterio: volumen para hablar al principio, pista al final.</p>
-      </div>
-      <ol class="sessions" data-mount="sessions">
-        <li class="session reveal" style="--accent:#C9A35B;--d:0ms" data-day="Jueves" data-cursor="oír"><span class="session__icon" aria-hidden="true"><svg viewBox="0 0 48 48" class="ico ico--vinyl"><g class="spin"><circle cx="24" cy="24" r="20"/><circle cx="24" cy="24" r="15" opacity=".45"/><circle cx="24" cy="24" r="11" opacity=".3"/><circle cx="24" cy="24" r="6"/><circle cx="24" cy="24" r="1.4" class="fill"/><path d="M12 13a16 16 0 0 1 9-5" opacity=".8"/></g></svg></span><span class="session__idx">01</span><h3 class="session__day">Jueves</h3><p class="session__genre">Soul &amp; Funk</p><p class="session__note">Vinilo entero, sin prisa.</p><span class="session__tonight">Esta noche</span></li>
-        <li class="session reveal" style="--accent:#FF3D8B;--d:90ms" data-day="Viernes" data-cursor="oír"><span class="session__icon" aria-hidden="true"><svg viewBox="0 0 48 48" class="ico ico--house"><path d="M6 22 24 7l18 15v19H6z"/><g class="eq"><rect x="14" y="26" width="3.5" height="11" rx="1"/><rect x="20" y="22" width="3.5" height="15" rx="1"/><rect x="26" y="28" width="3.5" height="9" rx="1"/><rect x="32" y="24" width="3.5" height="13" rx="1"/></g></svg></span><span class="session__idx">02</span><h3 class="session__day">Viernes</h3><p class="session__genre">House</p><p class="session__note">Selección de la casa.</p><span class="session__tonight">Esta noche</span></li>
-        <li class="session reveal" style="--accent:#3DE2FF;--d:180ms" data-day="Sábado" data-cursor="oír"><span class="session__icon" aria-hidden="true"><svg viewBox="0 0 48 48" class="ico ico--disco"><path d="M24 2v8"/><circle cx="24" cy="27" r="15"/><g class="mer"><ellipse cx="24" cy="27" rx="7" ry="15"/><ellipse cx="24" cy="27" rx="12" ry="15" opacity=".5"/></g><path d="M9.5 22h29M9 27h30M9.5 32h29M12 17.5h24M12 36.5h24" opacity=".6"/><path class="spark" d="M41 8v6M38 11h6"/></svg></span><span class="session__idx">03</span><h3 class="session__day">Sábado</h3><p class="session__genre">Disco &amp; Nu-Disco</p><p class="session__note">Pista llena, pies sueltos.</p><span class="session__tonight">Esta noche</span></li>
-        <li class="session reveal" style="--accent:#C9A35B;--d:270ms" data-day="Domingo" data-cursor="oír"><span class="session__icon" aria-hidden="true"><svg viewBox="0 0 48 48" class="ico ico--wave"><path class="w1" d="M2 24c4-9 8-9 11 0s7 9 11 0 7-9 11 0 7 9 11 0"/><path class="w2" d="M2 32c4-5 8-5 11 0s7 5 11 0 7-5 11 0 7 5 11 0" opacity=".45"/></svg></span><span class="session__idx">04</span><h3 class="session__day">Domingo</h3><p class="session__genre">Jazz &amp; Electrónica suave</p><p class="session__note">Sesión lenta para cerrar la semana.</p><span class="session__tonight">Esta noche</span></li>
-      </ol>
-    </section>
-
-    <!-- ============ 04 · GALERÍA ============ -->
-    <section class="gallery section" id="galeria" data-tone="gold">
-      <span class="watermark" aria-hidden="true">04</span>
-      <div class="gallery__head">
-        <p class="eyebrow reveal"><span class="eyebrow__n">04</span> Galería</p>
-        <h2 class="h2" data-split>La noche, <em>en fotos.</em></h2>
-      </div>
-      <div class="gallery__rows">
-        <div class="gallery__row gallery__row--fast"><div class="gallery__track" data-mount="gallery-1"><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-01.webp" alt="Luces doradas desenfocadas en la barra" loading="lazy" decoding="async"><figcaption>Luz baja</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-04.webp" alt="Humo de colores sobre fondo oscuro" loading="lazy" decoding="async"><figcaption>Humo</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-07.webp" alt="Copa coupe con trago rojo sobre la barra" loading="lazy" decoding="async"><figcaption>Cristal</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-10.webp" alt="Rodaja de naranja a contraluz" loading="lazy" decoding="async"><figcaption>Cítrico</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-13.webp" alt="Reflejos sobre la barra de latón" loading="lazy" decoding="async"><figcaption>Latón</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-16.webp" alt="Hielo macizo dentro de un trago ámbar" loading="lazy" decoding="async"><figcaption>Hielo</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-01.webp" alt="" loading="lazy" decoding="async"><figcaption>Luz baja</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-04.webp" alt="" loading="lazy" decoding="async"><figcaption>Humo</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-07.webp" alt="" loading="lazy" decoding="async"><figcaption>Cristal</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-10.webp" alt="" loading="lazy" decoding="async"><figcaption>Cítrico</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-13.webp" alt="" loading="lazy" decoding="async"><figcaption>Latón</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-16.webp" alt="" loading="lazy" decoding="async"><figcaption>Hielo</figcaption></figure></div></div>
-        <div class="gallery__row gallery__row--slow"><div class="gallery__track" data-mount="gallery-2"><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-02.webp" alt="Letrero de neón rosa con forma de copa" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-05.webp" alt="Burbujas en un trago ámbar" loading="lazy" decoding="async"><figcaption>Burbuja</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-08.webp" alt="Lámparas colgantes de luz cálida" loading="lazy" decoding="async"><figcaption>Luz baja</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-11.webp" alt="Humo dorado en espiral" loading="lazy" decoding="async"><figcaption>Humo</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-14.webp" alt="Burbujas finas de cava" loading="lazy" decoding="async"><figcaption>Burbuja</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-02.webp" alt="" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-05.webp" alt="" loading="lazy" decoding="async"><figcaption>Burbuja</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-08.webp" alt="" loading="lazy" decoding="async"><figcaption>Luz baja</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-11.webp" alt="" loading="lazy" decoding="async"><figcaption>Humo</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-14.webp" alt="" loading="lazy" decoding="async"><figcaption>Burbuja</figcaption></figure></div></div>
-        <div class="gallery__row gallery__row--rev"><div class="gallery__track" data-mount="gallery-3"><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-03.webp" alt="Tubos de neón cian y rosa ondulados" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-06.webp" alt="Hielo de mano a contraluz" loading="lazy" decoding="async"><figcaption>Hielo</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-09.webp" alt="Botellas retroiluminadas en la contrabarra" loading="lazy" decoding="async"><figcaption>Barra</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-12.webp" alt="Bokeh rosa y cian de la pista" loading="lazy" decoding="async"><figcaption>Pista</figcaption></figure><figure class="shot" data-cursor="mirar"><img src="assets/img/gal-15.webp" alt="Flecha de neón rosa en la pared de ladrillo" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-03.webp" alt="" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-06.webp" alt="" loading="lazy" decoding="async"><figcaption>Hielo</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-09.webp" alt="" loading="lazy" decoding="async"><figcaption>Barra</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-12.webp" alt="" loading="lazy" decoding="async"><figcaption>Pista</figcaption></figure><figure class="shot" aria-hidden="true" data-cursor="mirar"><img src="assets/img/gal-15.webp" alt="" loading="lazy" decoding="async"><figcaption>Neón</figcaption></figure></div></div>
-      </div>
-    </section>
-
-    <!-- ============ 05 · EVENTOS PRIVADOS ============ -->
-    <section class="private section" id="privados" data-tone="pink">
-      <span class="watermark" aria-hidden="true">05</span>
-      <div class="private__wrap reveal">
-      <div class="private__card" data-cursor="privado">
-        <div class="private__bg" aria-hidden="true"><img src="assets/img/privado.webp" alt="" loading="lazy" decoding="async"></div>
-        <div class="private__veil" aria-hidden="true"></div>
-        <div class="private__content">
-          <p class="eyebrow"><span class="eyebrow__n">05</span> Eventos privados</p>
-          <h2 class="h2" data-split>Cierra Jerome <em>para los tuyos.</em></h2>
-          <p class="lead">Un cumpleaños que se recuerde, el lanzamiento de algo tuyo o la noche de empresa con criterio. Cerramos el bar para vos y tu gente: carta a medida, música a medida y la barra entera.</p>
-          <ul class="chips">
-            <li>Cumpleaños</li><li>Lanzamientos</li><li>Empresa con criterio</li><li>Hasta <span data-b-text="capacity">60 personas</span></li>
-          </ul>
-          <a class="btn btn--primary" href="https://wa.me/5491164723635?text=Hola%20Jerome%2C%20quiero%20consultar%20por%20un%20evento%20privado." data-b-wa="Hola {name}, quiero consultar por un evento privado. Somos __ personas y la fecha sería __." target="_blank" rel="noopener" data-cursor="WhatsApp">Hablamos por WhatsApp <span class="arrow">→</span></a>
+      <div class="menu-grid">
+        <div>
+          <div class="items" id="items" aria-live="polite"></div>
+          <p class="price-note">Precios de ejemplo en pesos argentinos. Tocá cualquier plato o trago para ver la ficha.</p>
         </div>
-      </div>
-      </div>
-    </section>
-
-    <!-- ============ 06 · RESERVA ============ -->
-    <section class="reserve section" id="reserva" data-tone="cyan">
-      <span class="watermark" aria-hidden="true">06</span>
-      <div class="reserve__grid">
-        <div class="reserve__main">
-          <p class="eyebrow reveal"><span class="eyebrow__n">06</span> Reserva</p>
-          <h2 class="h2" data-split>Tu mesa, <em>esta noche.</em></h2>
-          <p class="lead reveal">Completá esto y te abrimos WhatsApp con la reserva ya escrita. Solo tenés que darle a enviar.</p>
-          <form class="form reveal" id="reserva-form" novalidate>
-            <div class="field">
-              <label for="f-nombre"><span class="field__n">01</span> Nombre</label>
-              <input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="¿A nombre de quién?" required data-label="nombre">
-            </div>
-            <div class="field">
-              <label for="f-tel"><span class="field__n">02</span> Teléfono</label>
-              <input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="11 1234-5678" required data-label="teléfono">
-            </div>
-            <div class="field-split">
-              <div class="field">
-                <label for="f-dia"><span class="field__n">03</span> Día</label>
-                <input id="f-dia" name="dia" type="date" required data-label="día">
-                <span class="field__hint" aria-live="polite"></span>
-              </div>
-              <div class="field">
-                <label for="f-pax">Personas</label>
-                <select id="f-pax" name="personas" required data-label="personas">
-                  <option value="" selected disabled>¿Cuántos?</option>
-                  <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
-                  <option value="Más de 12 (evento privado)">Más de 12</option>
-                </select>
-              </div>
-            </div>
-            <div class="field">
-              <label for="f-nota"><span class="field__n">04</span> Nota <small>(opcional)</small></label>
-              <textarea id="f-nota" name="nota" rows="2" placeholder="Cumpleaños, hora de llegada, alergias…"></textarea>
-            </div>
-            <p class="form__error" role="alert"></p>
-            <div class="form__actions">
-              <button class="btn btn--primary btn--big" type="submit" data-cursor="enviar">Enviar reserva por WhatsApp <span class="arrow">→</span></button>
-              <a class="form__alt" href="https://wa.me/5491164723635?text=Hola%20Jerome%2C%20quiero%20reservar%20mesa." data-b-wa="Hola {name}, quiero reservar mesa." target="_blank" rel="noopener" data-cursor="WhatsApp">…o más rápido por WhatsApp →</a>
-            </div>
-            <p class="form__sent" aria-live="polite">Listo: se abrió WhatsApp con tu reserva. Te confirmamos por ahí.</p>
-          </form>
-        </div>
-        <aside class="reserve__panel reveal" aria-label="Datos de contacto">
-          <dl>
-            <div><dt>Tel</dt><dd><a href="tel:+541164723635" data-b-tel data-b-text="phoneDisplay" data-cursor="llamar">11 6472-3635</a></dd></div>
-            <div><dt>IG</dt><dd><a href="https://www.instagram.com/ejemplo/" data-b-ig data-b-ig-text target="_blank" rel="noopener" data-cursor="mirar">@ejemplo</a></dd></div>
-            <div><dt>Dirección</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Malabia%201401%2C%20Palermo%2C%20Buenos%20Aires%2C%20Argentina" data-b-maplink target="_blank" rel="noopener" data-cursor="ver"><span data-b-text="address">Malabia 1401</span><br><span data-b-text="city">Palermo · CABA</span></a></dd></div>
-            <div><dt>Horario</dt><dd>Mié → Dom<br>19:00 → 02:30</dd></div>
-          </dl>
-          <p class="reserve__note"><span class="dot"></span><span>Jueves a sábado se llena. Aforo íntimo: <span data-b-text="capacity">60 personas</span>.</span></p>
+        <aside class="quiz cut" aria-label="Recomendador">
+          <p class="eyebrow">¿No sabés qué pedir?</p>
+          <h3>Te armamos <em>el trago</em></h3>
+          <div class="q"><span class="k">Tengo ganas de algo</span><div class="opts" data-q="flavor">
+            <button class="chip" type="button" data-v="fresco" aria-pressed="true">Fresco</button>
+            <button class="chip" type="button" data-v="amargo" aria-pressed="false">Amargo</button>
+            <button class="chip" type="button" data-v="dulce" aria-pressed="false">Dulce</button>
+            <button class="chip" type="button" data-v="intenso" aria-pressed="false">Intenso</button>
+          </div></div>
+          <div class="q"><span class="k">Alcohol</span><div class="opts" data-q="abv">
+            <button class="chip" type="button" data-v="si" aria-pressed="true">Sí</button>
+            <button class="chip" type="button" data-v="suave" aria-pressed="false">Suave</button>
+            <button class="chip" type="button" data-v="no" aria-pressed="false">Sin alcohol</button>
+          </div></div>
+          <div class="q"><span class="k">La noche</span><div class="opts" data-q="moment">
+            <button class="chip" type="button" data-v="empieza" aria-pressed="true">Recién empieza</button>
+            <button class="chip" type="button" data-v="pleno" aria-pressed="false">En su punto</button>
+            <button class="chip" type="button" data-v="cierre" aria-pressed="false">Para cerrar</button>
+          </div></div>
+          <div class="rec" id="rec" aria-live="polite"></div>
         </aside>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+</section>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer" data-tone="pink">
-    <div class="footer__display" aria-hidden="true">
-      <div class="footer__track"><span>Jerome</span><i>·</i><em>Jerome</em><i>·</i><span>Jerome</span><i>·</i><em>Jerome</em><i>·</i><span>Jerome</span><i>·</i><em>Jerome</em><i>·</i><span>Jerome</span><i>·</i><em>Jerome</em><i>·</i></div>
-    </div>
-    <div class="footer__grid">
-      <div class="footer__col">
-        <h3 class="label">Cómo llegar</h3>
-        <p class="footer__big"><span data-b-text="address">Malabia 1401</span><br><span data-b-text="city">Palermo · CABA</span></p>
-        <p class="footer__small" data-b-text="directions">En pleno Palermo. Llegás en subte (línea D), en colectivo o caminando desde Palermo Soho.</p>
-        <a class="btn btn--primary" href="#reserva" data-cursor="reservar">Reservar mesa <span class="arrow">→</span></a>
+<!-- ======================= RESERVA ======================= -->
+<section class="view" data-view="reserva" aria-label="Reservas" hidden>
+  <div class="section">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Reservas</p>
+        <h2 class="h2">Tu mesa <em>en cuatro pasos</em></h2>
+        <p class="lead">Elegí cuántos son, el día, la hora y dónde querés sentarte. Confirmamos al instante.</p>
       </div>
-      <div class="footer__col">
-        <h3 class="label">Contacto</h3>
-        <ul class="footer__list">
-          <li><span>Tel</span><a href="tel:+541164723635" data-b-tel data-b-text="phoneDisplay" data-cursor="llamar">11 6472-3635</a></li>
-          <li><span>WhatsApp</span><a href="https://wa.me/5491164723635" data-b-wa="" target="_blank" rel="noopener" data-cursor="WhatsApp">Escribinos →</a></li>
-          <li><span>IG</span><a href="https://www.instagram.com/ejemplo/" data-b-ig data-b-ig-text target="_blank" rel="noopener" data-cursor="mirar">@ejemplo</a></li>
-          <li><span>Horario</span><span data-b-text="hours">Miércoles a domingo · 19:00 → 02:30</span></li>
-        </ul>
+      <div id="lastRes"></div>
+      <div class="res" id="resForm">
+        <div class="steps">
+          <div class="step" id="s1">
+            <div class="step__h"><span class="step__n">1</span><h3 class="step__t">¿Cuántos son?</h3><span class="step__v" id="v1"></span></div>
+            <div class="pax">
+              <div class="stepper"><button type="button" id="paxMinus" aria-label="Una persona menos">−</button><output id="pax" aria-live="polite">2</output><button type="button" id="paxPlus" aria-label="Una persona más">+</button></div>
+              <small id="paxNote">Para grupos de más de 12, usá el Reservado o escribinos.</small>
+            </div>
+          </div>
+          <div class="step" id="s2">
+            <div class="step__h"><span class="step__n">2</span><h3 class="step__t">Día</h3><span class="step__v" id="v2"></span></div>
+            <div class="cal">
+              <div class="cal__h"><strong id="calTitle"></strong><div class="cal__nav"><button type="button" id="calPrev" aria-label="Mes anterior">←</button><button type="button" id="calNext" aria-label="Mes siguiente">→</button></div></div>
+              <div class="cal__grid" id="calGrid"></div>
+              <p class="cal__ev" id="calEv"></p>
+            </div>
+          </div>
+          <div class="step" id="s3">
+            <div class="step__h"><span class="step__n">3</span><h3 class="step__t">Hora</h3><span class="step__v" id="v3"></span></div>
+            <div class="slots" id="slots" role="group" aria-label="Horarios"></div>
+          </div>
+          <div class="step" id="s4">
+            <div class="step__h"><span class="step__n">4</span><h3 class="step__t">Dónde</h3><span class="step__v" id="v4"></span></div>
+            <div class="plan">
+              <svg viewBox="0 0 420 330" role="group" aria-label="Plano del bar" id="planSvg">
+                <!-- edificio con la esquina cortada -->
+                <path d="M20 20 H330 L400 90 V250 H20 Z" fill="none" stroke="#3a4766" stroke-width="2"/>
+                <g class="zone" data-z="barra" tabindex="0" role="button" aria-label="Barra">
+                  <rect class="zf" x="34" y="34" width="70" height="200"/>
+                  <rect class="zi" x="44" y="44" width="16" height="180"/>
+                  <g class="zi"><circle cx="82" cy="58" r="7"/><circle cx="82" cy="88" r="7"/><circle cx="82" cy="118" r="7"/><circle cx="82" cy="148" r="7"/><circle cx="82" cy="178" r="7"/><circle cx="82" cy="208" r="7"/></g>
+                  <text class="zl" x="69" y="30" text-anchor="middle">Barra</text>
+                </g>
+                <g class="zone" data-z="salon" tabindex="0" role="button" aria-label="Salón">
+                  <rect class="zf" x="118" y="34" width="168" height="200"/>
+                  <g class="zi"><rect x="134" y="52" width="30" height="30"/><rect x="184" y="52" width="30" height="30"/><rect x="234" y="52" width="30" height="30"/><rect x="134" y="112" width="30" height="30"/><rect x="184" y="112" width="30" height="30"/><rect x="234" y="112" width="30" height="30"/><rect x="134" y="172" width="80" height="34"/><circle cx="249" cy="189" r="17"/></g>
+                  <text class="zl" x="202" y="226" text-anchor="middle">Salón</text>
+                </g>
+                <g class="zone" data-z="reservado" tabindex="0" role="button" aria-label="Reservado">
+                  <path class="zf" d="M300 34 H326 L386 94 V160 H300 Z"/>
+                  <rect class="zi" x="314" y="92" width="56" height="44"/>
+                  <text class="zl" x="340" y="80" text-anchor="middle">Reservado</text>
+                </g>
+                <g class="zone" data-z="vereda" tabindex="0" role="button" aria-label="Vereda">
+                  <path class="zf" d="M300 262 H410 V176 L420 176 V292 H300 Z"/>
+                  <g class="zi"><circle cx="322" cy="277" r="9"/><circle cx="352" cy="277" r="9"/><circle cx="382" cy="277" r="9"/><circle cx="410" cy="200" r="0"/></g>
+                  <text class="zl" x="356" y="314" text-anchor="middle">Vereda</text>
+                </g>
+                <!-- puerta en la ochava -->
+                <path d="M352 42 L378 68" stroke="#FFB547" stroke-width="5"/>
+                <text x="392" y="40" fill="#8A8781" font-family="DM Mono, monospace" font-size="9" letter-spacing="1">PUERTA</text>
+                <text x="20" y="318" fill="#8A8781" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.5">GURRUCHAGA →</text>
+              </svg>
+              <div class="zlist" id="zlist"></div>
+            </div>
+          </div>
+          <div class="step" id="s5">
+            <div class="step__h"><span class="step__n">5</span><h3 class="step__t">Tus datos</h3></div>
+            <div class="fields">
+              <div class="field" id="fName"><label for="rName">Nombre</label><input id="rName" autocomplete="name" placeholder="¿A nombre de quién?"><span class="err"></span></div>
+              <div class="field" id="fPhone"><label for="rPhone">Celular</label><input id="rPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="11 2345 6789"><span class="err"></span></div>
+              <div class="field field--full"><span class="lbl" id="occLbl">¿Es una ocasión especial?</span><div class="occasions" id="occ" role="group" aria-labelledby="occLbl">
+                <button class="chip" type="button" data-v="Cumpleaños" aria-pressed="false">Cumpleaños</button>
+                <button class="chip" type="button" data-v="Aniversario" aria-pressed="false">Aniversario</button>
+                <button class="chip" type="button" data-v="After office" aria-pressed="false">After office</button>
+                <button class="chip" type="button" data-v="Primera cita" aria-pressed="false">Primera cita</button>
+              </div></div>
+              <div class="field field--full"><label for="rNote">Nota para el bar (opcional)</label><textarea id="rNote" placeholder="Alergias, silla para bebé, llegamos un poco tarde…"></textarea></div>
+            </div>
+          </div>
+        </div>
+        <aside class="ticket" aria-label="Resumen de la reserva">
+          <h3>Ochava</h3>
+          <p class="sub">Costa Rica y Gurruchaga · Palermo</p>
+          <dl>
+            <div><dt>Personas</dt><dd id="tPax">—</dd></div>
+            <div><dt>Día</dt><dd id="tDay">—</dd></div>
+            <div><dt>Hora</dt><dd id="tTime">—</dd></div>
+            <div><dt>Lugar</dt><dd id="tZone">—</dd></div>
+            <div><dt>Nombre</dt><dd id="tName">—</dd></div>
+          </dl>
+          <button class="btn cut" type="button" id="confirmBtn">Confirmar reserva</button>
+          <p class="missing" id="missing" aria-live="polite"></p>
+          <p class="note">Tolerancia de 15 minutos. Si no llegás, la mesa se libera. Podés cancelar respondiendo el mensaje de confirmación.</p>
+        </aside>
       </div>
-      <div class="footer__map">
-        <iframe title="Mapa: Jerome, Malabia 1401, Palermo" data-b-map src="https://www.google.com/maps?q=Malabia%201401%2C%20Palermo%2C%20Buenos%20Aires%2C%20Argentina&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="done cut" id="done" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTACTO ======================= -->
+<section class="view" data-view="contacto" aria-label="Contacto" hidden>
+  <div class="section">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Contacto</p>
+        <h2 class="h2">Estamos <em>en la esquina</em></h2>
+        <p class="lead">Costa Rica y Gurruchaga, Palermo. La puerta está justo en la ochava, debajo del cartel.</p>
+      </div>
+      <div class="contact">
+        <div class="panel cut">
+          <div class="map">
+            <svg viewBox="0 0 400 260" role="img" aria-label="Mapa esquemático: Ochava en la esquina de Costa Rica y Gurruchaga">
+              <rect width="400" height="260" fill="#0A101C"/>
+              <g fill="#121a2b"><rect x="0" y="0" width="150" height="88"/><rect x="186" y="0" width="214" height="88"/><rect x="0" y="124" width="150" height="136"/><rect x="186" y="124" width="214" height="136"/></g>
+              <path class="st" d="M0 106 H400"/><path class="st" d="M168 0 V260"/>
+              <path d="M150 88 V64 M186 88 V64 M150 124 V150 M186 124 V150" stroke="#0A101C" stroke-width="0"/>
+              <path d="M186 124 h40 v-0 M186 124 L186 124" stroke="none"/>
+              <text class="sl" x="300" y="110">Gurruchaga</text>
+              <text class="sl" x="172" y="240" transform="rotate(-90 172 240)">Costa Rica</text>
+              <path d="M186 140 L202 124 H260 V196 H186 Z" fill="#2a2416" stroke="#FFB547" stroke-width="2"/>
+              <circle cx="194" cy="132" r="9" fill="#FFB547"><animate attributeName="r" values="7;12;7" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.4;1" dur="2.2s" repeatCount="indefinite"/></circle>
+              <circle cx="194" cy="132" r="5" fill="#2A1A04"/>
+              <text x="212" y="162" fill="#FFB547" font-family="Big Shoulders Display, Impact, sans-serif" font-weight="800" font-size="20" letter-spacing="1">OCHAVA</text>
+              <text x="212" y="180" fill="#8A8781" font-family="DM Mono, monospace" font-size="9">puerta en la esquina</text>
+            </svg>
+          </div>
+          <div class="addr"><b>Costa Rica y Gurruchaga</b><span>Palermo Soho · Ciudad de Buenos Aires</span></div>
+          <div class="row" style="display:flex;flex-wrap:wrap;gap:8px">
+            <a class="btn btn--sodium btn--sm cut" href="https://www.google.com/maps/search/?api=1&amp;query=Costa%20Rica%20y%20Gurruchaga%2C%20Palermo%2C%20Buenos%20Aires" target="_blank" rel="noopener">Abrir en Google Maps ↗</a>
+            <button class="btn btn--line btn--sm cut" type="button" data-copy="Costa Rica y Gurruchaga, Palermo, Buenos Aires">Copiar dirección</button>
+          </div>
+        </div>
+        <div class="panel cut">
+          <h3>Horarios</h3>
+          <table class="hours" id="hours" aria-label="Horarios de apertura"></table>
+          <div class="lines">
+            <div class="line"><span class="k">WhatsApp</span><span class="v">+54 9 11 2345-6789</span><button class="copy" type="button" data-copy="+54 9 11 2345-6789">Copiar</button></div>
+            <div class="line"><span class="k">Instagram</span><span class="v">@ochava.bar</span><button class="copy" type="button" data-copy="@ochava.bar">Copiar</button></div>
+            <div class="line"><span class="k">Email</span><span class="v">hola@ochavabar.com.ar</span><button class="copy" type="button" data-copy="hola@ochavabar.com.ar">Copiar</button></div>
+          </div>
+        </div>
+        <div class="panel cut">
+          <h3>Escribinos</h3>
+          <form id="contactForm" novalidate>
+            <div class="fields">
+              <div class="field field--full"><span class="lbl" id="motLbl">Motivo</span><div class="occasions" id="motivo" role="group" aria-labelledby="motLbl">
+                <button class="chip" type="button" data-v="Consulta" aria-pressed="true">Consulta</button>
+                <button class="chip" type="button" data-v="Evento privado" aria-pressed="false">Evento privado</button>
+                <button class="chip" type="button" data-v="Prensa" aria-pressed="false">Prensa</button>
+                <button class="chip" type="button" data-v="Trabajar en Ochava" aria-pressed="false">Trabajar acá</button>
+              </div></div>
+              <div class="field" id="cfName"><label for="cName">Nombre</label><input id="cName" autocomplete="name"><span class="err"></span></div>
+              <div class="field" id="cfMail"><label for="cMail">Email</label><input id="cMail" type="email" autocomplete="email"><span class="err"></span></div>
+              <div class="field field--full" id="cfMsg"><label for="cMsg">Mensaje</label><textarea id="cMsg" placeholder="Contanos qué necesitás"></textarea><span class="err"></span></div>
+            </div>
+            <button class="btn btn--sodium cut" type="submit" style="margin-top:14px">Enviar mensaje</button>
+          </form>
+          <div class="sent" id="sent" hidden></div>
+        </div>
+        <div class="panel cut">
+          <h3>Eventos privados</h3>
+          <p style="color:var(--muted)">Cerramos el Reservado (hasta 20 personas) o el bar entero (hasta 62) para cumpleaños, lanzamientos y cenas de empresa. Armamos carta y música a medida.</p>
+          <ul style="display:grid;gap:8px;color:var(--muted)">
+            <li>· Barra libre de vermú y cócteles por 2 o 3 horas</li>
+            <li>· Picadas y platos para compartir</li>
+            <li>· DJ o músicos en vivo de nuestra agenda</li>
+          </ul>
+          <button class="btn btn--line cut" type="button" id="privBtn">Consultar por un evento →</button>
+        </div>
       </div>
     </div>
-    <div class="footer__legal">
-      <span>© <span data-year>2026</span> Jerome · EST. 2024 · Bar de copas</span>
-      <a href="assets/credits.json" target="_blank" rel="noopener">Créditos de imágenes</a>
-      <a href="#top" data-top data-cursor="arriba">↑ Volver arriba</a>
+  </div>
+  <div class="section">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Preguntas frecuentes</p><h2 class="h2">Antes <em>de venir</em></h2></div>
+      <div class="faq">
+        <details open><summary>¿Se puede ir sin reserva?</summary><p>Sí. La barra y la vereda se reservan solo en parte, así que casi siempre hay lugar para ir sin reserva. Jueves a sábado después de las 21 conviene reservar.</p></details>
+        <details><summary>¿Tienen opciones sin TACC y veggie?</summary><p>Sí. En la carta están marcadas. La cocina separa la preparación de los platos sin TACC, pero avisá al llegar si sos celíaco.</p></details>
+        <details><summary>¿Puedo ir con mi perro?</summary><p>En la vereda, siempre. Adentro, de martes a jueves antes de las 21.</p></details>
+        <details><summary>¿Cómo se paga?</summary><p>Efectivo, débito, crédito y transferencia o QR. Para grupos de más de 8 personas, dividimos la cuenta hasta en 4 partes.</p></details>
+        <details><summary>¿Cobran entrada los días de música?</summary><p>No. La música en vivo de los jueves y los DJ del fin de semana están incluidos. A veces sugerimos una colaboración voluntaria para los músicos.</p></details>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__in">
+      <div>
+        <div class="foot__brand">Ochava</div>
+        <p style="margin-top:12px">Bar de esquina en Palermo. Vermú, cócteles y música.</p>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <ul style="display:grid;gap:4px"><li>Mar a jue · 18 a 01</li><li>Vie y sáb · 18 a 03</li><li>Dom · 17 a 00</li><li>Lunes cerrado</li></ul>
+      </div>
+      <div>
+        <h4>Secciones</h4>
+        <nav aria-label="Pie"><a href="#inicio" data-go="inicio">Inicio</a><a href="#menu" data-go="menu">Carta</a><a href="#reserva" data-go="reserva">Reservas</a><a href="#contacto" data-go="contacto">Contacto</a></nav>
+      </div>
+    </div>
+    <p class="foot__legal">Sitio de demostración. Ochava, su dirección, teléfono, precios y reseñas son ficticios.</p>
+  </div>
+</footer>
+
+<nav class="tabbar" aria-label="Navegación">
+  <a href="#inicio" data-go="inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Inicio</a>
+  <a href="#menu" data-go="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14l-7 8zM12 12v7M8 20h8"/></svg>Carta</a>
+  <a href="#reserva" data-go="reserva"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="1"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Reservar</a>
+  <a href="#contacto" data-go="contacto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Contacto</a>
+</nav>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Ficha del producto"></aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function () {
+  'use strict';
+  var D = document, W = window;
+  function $(s, c) { return (c || D).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || D).querySelectorAll(s)); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var REDUCE = W.matchMedia && W.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var store = {
+    get: function (k) { try { return JSON.parse(W.localStorage.getItem(k)); } catch (e) { return null; } },
+    set: function (k, v) { try { W.localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+
+  /* ================= DATOS ================= */
+  var DAYS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  var DAYS_SHORT = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+  var MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  // horario por día (0 = domingo). Las horas > 24 son de madrugada.
+  var HOURS = { 0: [17, 24], 1: null, 2: [18, 25], 3: [18, 25], 4: [18, 25], 5: [18, 27], 6: [18, 27] };
+  var AGENDA = {
+    0: { t: 'Vermú con tango', h: '19:00', d: 'Un trío de tango toca bajito mientras corre el vermú con sifón. Ideal para cerrar el finde.', img: 'sifon' },
+    1: null,
+    2: { t: 'Trivia de barrio', h: '20:30', d: 'Equipos de hasta 5. El que gana se lleva una ronda de vermú. Inscripción en la barra.', img: 'barra' },
+    3: { t: 'Noche de vinilos', h: '21:00', d: 'Un selector invitado trae su colección: soul, bossa y rock nacional en vinilo.', img: 'lamparas' },
+    4: { t: 'Jazz en la esquina', h: '21:30', d: 'Trío en vivo en el salón. Es la noche que más rápido se llena: reservá con tiempo.', img: 'musica' },
+    5: { t: 'DJ · Disco & funk', h: '23:00', d: 'Corremos las mesas del salón y queda pista hasta el cierre.', img: 'musica' },
+    6: { t: 'DJ · House de barrio', h: '23:30', d: 'House cálido para la noche larga del sábado. La cocina cierra a las 23:30.', img: 'lamparas' }
+  };
+  var CATS = [
+    { id: 'autor', name: 'Cócteles de autor' },
+    { id: 'clasicos', name: 'Clásicos' },
+    { id: 'vermu', name: 'Vermú y aperitivos' },
+    { id: 'cerveza', name: 'Cervezas y vinos' },
+    { id: 'sin', name: 'Sin alcohol' },
+    { id: 'picar', name: 'Para picar' }
+  ];
+  // f: sabor (fresco, amargo, dulce, intenso) · a: alcohol (si, suave, no) · m: momento (empieza, pleno, cierre)
+  var MENU = [
+    { id: 'ochava', c: 'autor', n: 'Ochava', p: 12500, g: 'highball', col: '#C8502E', d: 'Vermú rosso de la casa, gin, bitter de naranja y tónica. El de la esquina.', ing: ['Vermú rosso', 'Gin', 'Bitter de naranja', 'Tónica'], t: ['casa', 'tacc'], f: 'amargo', a: 'si', m: 'empieza', fl: { amargo: 70, dulce: 30, citrico: 50 } },
+    { id: 'garua', c: 'autor', n: 'Garúa', p: 11800, g: 'highball', col: '#9FD3A8', d: 'Gin, pepino, lima y soda de sifón. Liviano, como la llovizna de la esquina.', ing: ['Gin', 'Pepino', 'Lima', 'Soda de sifón'], t: ['casa', 'tacc'], f: 'fresco', a: 'suave', m: 'empieza', fl: { amargo: 15, dulce: 20, citrico: 85 } },
+    { id: 'sodio', c: 'autor', n: 'Sodio', p: 13500, g: 'rocks', col: '#E39A2E', d: 'Whisky, miel de naranja quemada y un toque ahumado. Por la luz amarilla del farol.', ing: ['Whisky', 'Miel de naranja quemada', 'Bitter aromático', 'Humo de roble'], t: ['casa', 'tacc'], f: 'intenso', a: 'si', m: 'cierre', fl: { amargo: 45, dulce: 55, citrico: 25 } },
+    { id: 'malevo', c: 'autor', n: 'Malevo', p: 12800, g: 'coupe', col: '#5B1E2A', d: 'Fernet artesanal, vermú, cereza y un golpe de café. Porteño y sin culpa.', ing: ['Fernet artesanal', 'Vermú rosso', 'Licor de cereza', 'Café'], t: ['casa'], f: 'amargo', a: 'si', m: 'pleno', fl: { amargo: 85, dulce: 35, citrico: 10 } },
+    { id: 'medianoche', c: 'autor', n: 'Medianoche en Gurruchaga', p: 13200, g: 'martini', col: '#3A2416', d: 'Espresso, vodka y licor de dulce de leche. Batido hasta hacer espuma.', ing: ['Espresso', 'Vodka', 'Licor de dulce de leche'], t: ['casa', 'tacc'], f: 'dulce', a: 'si', m: 'cierre', fl: { amargo: 40, dulce: 75, citrico: 0 } },
+    { id: 'esquinadulce', c: 'autor', n: 'Esquina dulce', p: 12200, g: 'coupe', col: '#F2C14E', d: 'Pisco, maracuyá, almíbar de vainilla y espuma cítrica.', ing: ['Pisco', 'Maracuyá', 'Vainilla', 'Limón'], t: ['tacc'], f: 'dulce', a: 'suave', m: 'pleno', fl: { amargo: 5, dulce: 80, citrico: 60 } },
+
+    { id: 'negroni', c: 'clasicos', n: 'Negroni', p: 11000, g: 'rocks', col: '#B5241C', d: 'Gin, Campari y vermú rosso, en partes iguales y con piel de naranja.', ing: ['Gin', 'Campari', 'Vermú rosso'], t: ['tacc'], f: 'amargo', a: 'si', m: 'empieza', fl: { amargo: 90, dulce: 35, citrico: 20 } },
+    { id: 'oldf', c: 'clasicos', n: 'Old fashioned', p: 11500, g: 'rocks', col: '#B8691F', d: 'Bourbon, azúcar, amargo de angostura y hielo macizo.', ing: ['Bourbon', 'Azúcar', 'Angostura', 'Naranja'], t: ['tacc'], f: 'intenso', a: 'si', m: 'cierre', fl: { amargo: 50, dulce: 50, citrico: 15 } },
+    { id: 'margarita', c: 'clasicos', n: 'Margarita', p: 10800, g: 'coupe', col: '#DCE08A', d: 'Tequila, triple sec y lima, con sal de la casa en el borde.', ing: ['Tequila', 'Triple sec', 'Lima', 'Sal'], t: ['tacc'], f: 'fresco', a: 'si', m: 'pleno', fl: { amargo: 10, dulce: 35, citrico: 90 } },
+    { id: 'gintonic', c: 'clasicos', n: 'Gin tonic', p: 9800, g: 'wine', col: '#CFE8E6', d: 'Gin nacional, tónica y pepino o pomelo, a elección.', ing: ['Gin', 'Tónica', 'Pepino o pomelo'], t: ['tacc'], f: 'fresco', a: 'suave', m: 'empieza', fl: { amargo: 40, dulce: 15, citrico: 60 } },
+    { id: 'fernet', c: 'clasicos', n: 'Fernet con coca', p: 8500, g: 'highball', col: '#2B1610', d: 'El de siempre, 30/70, con mucho hielo. No se discute.', ing: ['Fernet', 'Cola', 'Hielo'], t: ['tacc'], f: 'amargo', a: 'si', m: 'pleno', fl: { amargo: 80, dulce: 50, citrico: 0 } },
+    { id: 'aperol', c: 'clasicos', n: 'Aperol spritz', p: 9500, g: 'wine', col: '#F06A2A', d: 'Aperol, espumante y soda, con rodaja de naranja.', ing: ['Aperol', 'Espumante', 'Soda', 'Naranja'], t: ['tacc'], f: 'fresco', a: 'suave', m: 'empieza', fl: { amargo: 45, dulce: 45, citrico: 55 } },
+
+    { id: 'vermucasa', c: 'vermu', n: 'Vermú de la casa con sifón', p: 7500, g: 'siphon', col: '#8A2A14', d: 'Vermú rosso tirado de barril, sifón, naranja y aceituna. Se sirve con el sifón en la mesa.', ing: ['Vermú rosso de barril', 'Soda de sifón', 'Naranja', 'Aceituna'], t: ['casa', 'tacc'], f: 'amargo', a: 'suave', m: 'empieza', fl: { amargo: 60, dulce: 40, citrico: 35 } },
+    { id: 'vermublanco', c: 'vermu', n: 'Vermú blanco y pomelo', p: 7800, g: 'wine', col: '#EDE0B0', d: 'Vermú blanco, tónica de pomelo y romero.', ing: ['Vermú blanco', 'Tónica de pomelo', 'Romero'], t: ['tacc'], f: 'fresco', a: 'suave', m: 'empieza', fl: { amargo: 30, dulce: 35, citrico: 70 } },
+    { id: 'campari', c: 'vermu', n: 'Campari con naranja', p: 7900, g: 'highball', col: '#E0412F', d: 'Campari y jugo de naranja exprimido en el momento.', ing: ['Campari', 'Jugo de naranja'], t: ['tacc'], f: 'amargo', a: 'suave', m: 'empieza', fl: { amargo: 65, dulce: 40, citrico: 70 } },
+    { id: 'cynar', c: 'vermu', n: 'Cynar julep', p: 8400, g: 'mug', col: '#4F5A2A', d: 'Cynar, pomelo, menta y mucho hielo picado, en vaso de cobre.', ing: ['Cynar', 'Pomelo', 'Menta', 'Hielo picado'], t: ['tacc'], f: 'fresco', a: 'suave', m: 'pleno', fl: { amargo: 70, dulce: 25, citrico: 60 } },
+
+    { id: 'ipa', c: 'cerveza', n: 'IPA tirada', p: 5800, g: 'pint', col: '#D9902B', d: 'Pinta de IPA de cervecería de Chacarita. Rota cada mes.', ing: ['Pinta 500 ml'], t: [], f: 'amargo', a: 'suave', m: 'pleno', fl: { amargo: 70, dulce: 20, citrico: 40 } },
+    { id: 'golden', c: 'cerveza', n: 'Golden tirada', p: 5200, g: 'pint', col: '#F0C24A', d: 'Rubia liviana, para la vereda.', ing: ['Pinta 500 ml'], t: [], f: 'fresco', a: 'suave', m: 'empieza', fl: { amargo: 30, dulce: 25, citrico: 20 } },
+    { id: 'malbec', c: 'cerveza', n: 'Malbec por copa', p: 7200, g: 'wine', col: '#5A0F24', d: 'Malbec de Valle de Uco. Preguntá por la botella de la semana.', ing: ['Copa 180 ml'], t: ['tacc'], f: 'intenso', a: 'si', m: 'pleno', fl: { amargo: 30, dulce: 25, citrico: 10 } },
+    { id: 'torrontes', c: 'cerveza', n: 'Torrontés por copa', p: 6900, g: 'wine', col: '#F1E3A0', d: 'Torrontés salteño, frío y aromático.', ing: ['Copa 180 ml'], t: ['tacc'], f: 'fresco', a: 'suave', m: 'empieza', fl: { amargo: 10, dulce: 35, citrico: 60 } },
+    { id: 'espumante', c: 'cerveza', n: 'Espumante por copa', p: 7600, g: 'flute', col: '#F3E2A6', d: 'Extra brut mendocino. Para brindar por algo.', ing: ['Copa 150 ml'], t: ['tacc'], f: 'fresco', a: 'suave', m: 'pleno', fl: { amargo: 10, dulce: 20, citrico: 55 } },
+
+    { id: 'limonada', c: 'sin', n: 'Limonada de jengibre', p: 4900, g: 'highball', col: '#E8E07A', d: 'Limón, jengibre fresco, menta y soda de sifón.', ing: ['Limón', 'Jengibre', 'Menta', 'Soda'], t: ['sin', 'veg', 'tacc'], f: 'fresco', a: 'no', m: 'empieza', fl: { amargo: 5, dulce: 40, citrico: 90 } },
+    { id: 'sifonrojo', c: 'sin', n: 'Sifón de frutos rojos', p: 5200, g: 'siphon', col: '#B8344F', d: 'Almíbar de frutos rojos de la casa, sifón y limón.', ing: ['Frutos rojos', 'Soda de sifón', 'Limón'], t: ['sin', 'veg', 'tacc', 'casa'], f: 'dulce', a: 'no', m: 'pleno', fl: { amargo: 0, dulce: 75, citrico: 45 } },
+    { id: 'tonicapom', c: 'sin', n: 'Tónica de pomelo y romero', p: 4800, g: 'wine', col: '#F2B7A0', d: 'Un gin tonic sin gin. Amargo y fresco.', ing: ['Tónica', 'Pomelo', 'Romero'], t: ['sin', 'veg', 'tacc'], f: 'amargo', a: 'no', m: 'empieza', fl: { amargo: 55, dulce: 15, citrico: 65 } },
+    { id: 'cafefrio', c: 'sin', n: 'Café frío con tónica', p: 5000, g: 'rocks', col: '#4A2A1A', d: 'Espresso doble sobre tónica y hielo. Para seguir de largo.', ing: ['Espresso', 'Tónica', 'Naranja'], t: ['sin', 'veg', 'tacc'], f: 'intenso', a: 'no', m: 'cierre', fl: { amargo: 60, dulce: 15, citrico: 25 } },
+
+    { id: 'picada', c: 'picar', n: 'Picada Ochava', p: 24000, g: 'board', col: '#C98B4C', d: 'Fiambres, quesos, aceitunas, pan de masa madre y escabeche de berenjenas. Para 2 o 3.', ing: ['Jamón crudo', 'Salame de Tandil', 'Quesos', 'Aceitunas', 'Berenjenas en escabeche'], t: ['compartir', 'casa'], f: 'intenso', a: 'no', m: 'empieza', fl: {} },
+    { id: 'bravas', c: 'picar', n: 'Papas bravas', p: 8900, g: 'plate', col: '#E3A33A', d: 'Papas crocantes, salsa brava picante y alioli.', ing: ['Papas', 'Salsa brava', 'Alioli'], t: ['veg', 'tacc', 'compartir'], f: 'intenso', a: 'no', m: 'pleno', fl: {} },
+    { id: 'provoleta', c: 'picar', n: 'Provoleta', p: 9800, g: 'plate', col: '#E9C46A', d: 'Provoleta a la plancha con orégano, tomates asados y pan tostado.', ing: ['Provolone', 'Orégano', 'Tomates', 'Pan'], t: ['veg', 'compartir'], f: 'intenso', a: 'no', m: 'pleno', fl: {} },
+    { id: 'empanadas', c: 'picar', n: 'Empanadas cortadas a cuchillo', p: 7500, g: 'plate', col: '#D4924A', d: 'Tres empanadas de carne cortada a cuchillo, al horno de barro.', ing: ['3 unidades', 'Carne', 'Cebolla de verdeo', 'Huevo'], t: [], f: 'intenso', a: 'no', m: 'empieza', fl: {} },
+    { id: 'hummus', c: 'picar', n: 'Hummus de remolacha', p: 7800, g: 'plate', col: '#B0304F', d: 'Hummus de remolacha, garbanzos crocantes y pan pita.', ing: ['Garbanzos', 'Remolacha', 'Tahini', 'Pan pita'], t: ['veg', 'compartir'], f: 'fresco', a: 'no', m: 'empieza', fl: {} },
+    { id: 'tortilla', c: 'picar', n: 'Tortilla de papas', p: 9200, g: 'plate', col: '#F2C14E', d: 'Jugosa, con cebolla caramelizada. Se comparte o no.', ing: ['Papas', 'Huevos', 'Cebolla'], t: ['veg', 'tacc', 'compartir'], f: 'intenso', a: 'no', m: 'cierre', fl: {} }
+  ];
+  var BYID = {}; MENU.forEach(function (x) { BYID[x.id] = x; });
+  var ZONES = [
+    { id: 'barra', n: 'Barra', s: 'Banquetas frente al bartender', min: 1, max: 4 },
+    { id: 'salon', n: 'Salón', s: 'Mesas para 2 a 8, cerca de la música', min: 1, max: 8 },
+    { id: 'vereda', n: 'Vereda', s: 'Sobre la ochava, al aire libre. Sujeta al clima', min: 1, max: 6 },
+    { id: 'reservado', n: 'Reservado', s: 'Sala privada para grupos de 8 a 20', min: 8, max: 20 }
+  ];
+  var ZBY = {}; ZONES.forEach(function (z) { ZBY[z.id] = z; });
+
+  function money(n) { return '$' + n.toLocaleString('es-AR'); }
+  function hhmm(h) { var hh = Math.floor(h) % 24, mm = Math.round((h % 1) * 60); return (hh < 10 ? '0' : '') + hh + ':' + (mm < 10 ? '0' : '') + mm; }
+
+  /* hora de Buenos Aires */
+  function baNow() {
+    var d = new Date();
+    try {
+      var p = {}; new Intl.DateTimeFormat('en-US', { timeZone: 'America/Argentina/Buenos_Aires', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(d).forEach(function (x) { p[x.type] = x.value; });
+      return { date: new Date(+p.year, +p.month - 1, +p.day), h: +p.hour + (+p.minute) / 60 };
+    } catch (e) { return { date: new Date(d.getFullYear(), d.getMonth(), d.getDate()), h: d.getHours() + d.getMinutes() / 60 }; }
+  }
+  function openState() {
+    var n = baNow(), dow = n.date.getDay(), h = n.h;
+    var y = HOURS[(dow + 6) % 7];
+    if (y && y[1] > 24 && h < y[1] - 24) return { open: true, closes: y[1] };
+    var t = HOURS[dow];
+    if (t && h >= t[0] && h < t[1]) return { open: true, closes: t[1] };
+    if (t && h < t[0]) return { open: false, txt: 'abre hoy ' + hhmm(t[0]) };
+    for (var i = 1; i <= 7; i++) { var dd = (dow + i) % 7; if (HOURS[dd]) return { open: false, txt: 'abre ' + (i === 1 ? 'mañana' : 'el ' + DAYS[dd]) + ' ' + hhmm(HOURS[dd][0]) }; }
+    return { open: false, txt: '' };
+  }
+
+  /* ================= ICONOS DE VASOS ================= */
+  var FOOT = '<path d="M26 92 Q40 87 54 92"/>';
+  var GL = {
+    coupe: { o: '<path d="M8 30 H72 Q68 52 40 56 Q12 52 8 30 Z"/><path d="M40 56 V90"/>' + FOOT, l: 'M13 35 H67 Q63 50 40 53 Q17 50 13 35 Z' },
+    martini: { o: '<path d="M8 24 H72 L40 60 Z"/><path d="M40 60 V90"/>' + FOOT, l: 'M16 31 H64 L40 56 Z', g: '<circle cx="50" cy="28" r="5"/><path d="M50 28 L62 14"/>' },
+    highball: { o: '<path d="M22 12 H58 L56 94 H24 Z"/>', l: 'M24 30 H56 L55 91 H25 Z', g: '<rect x="30" y="40" width="12" height="12" transform="rotate(12 36 46)"/><rect x="38" y="58" width="12" height="12" transform="rotate(-8 44 64)"/>' },
+    rocks: { o: '<path d="M14 44 H66 L63 94 H17 Z"/>', l: 'M16 58 H64 L62 91 H18 Z', g: '<rect x="28" y="60" width="18" height="18" transform="rotate(10 37 69)"/>' },
+    wine: { o: '<path d="M20 12 H60 Q66 48 40 58 Q14 48 20 12 Z"/><path d="M40 58 V90"/>' + FOOT, l: 'M18 32 H62 Q60 50 40 55 Q20 50 18 32 Z' },
+    flute: { o: '<path d="M30 8 H50 Q53 48 40 60 Q27 48 30 8 Z"/><path d="M40 60 V90"/>' + FOOT, l: 'M30 22 H50 Q51 47 40 57 Q29 47 30 22 Z', g: '<circle cx="38" cy="44" r="1.4"/><circle cx="42" cy="36" r="1.2"/><circle cx="39" cy="28" r="1"/>' },
+    mug: { o: '<path d="M18 30 H56 L54 92 H20 Z"/><path d="M56 42 Q72 44 70 60 Q68 76 55 76"/>', l: 'M20 40 H54 L53 89 H21 Z', g: '<path d="M30 30 Q34 18 44 22 Q40 28 36 30"/>' },
+    siphon: { o: '<rect x="20" y="34" width="28" height="60" rx="6"/><path d="M18 34 H50 V20 Q34 12 18 20 Z"/><path d="M50 22 L68 28 V32 L50 29"/><path d="M60 46 H74 L72 94 H62 Z"/>', l: 'M61.5 58 H72.5 L71.6 92 H62.4 Z', g: '<path d="M24 44 V84" stroke-dasharray="3 5"/>' },
+    pint: { o: '<path d="M20 10 H60 L57 50 L59 62 L56 94 H24 L21 62 L23 50 Z"/>', l: 'M22 22 H58 L56 50 L57 62 L55 91 H25 L23 62 L24 50 Z', g: '<path d="M21 14 Q30 8 40 14 Q50 8 59 14 V22 H21 Z" fill="currentColor" stroke="none" opacity=".85"/>' },
+    plate: { o: '<ellipse cx="40" cy="70" rx="36" ry="13"/><ellipse cx="40" cy="68" rx="24" ry="8"/>', l: 'M18 66 Q24 42 40 40 Q58 42 62 66 Q40 74 18 66 Z' },
+    board: { o: '<rect x="6" y="56" width="68" height="20" rx="3"/><path d="M74 62 H80"/>', l: 'M12 58 Q16 40 28 42 Q34 32 46 40 Q58 34 66 46 Q70 52 68 58 Z', g: '<circle cx="26" cy="50" r="4"/><circle cx="52" cy="48" r="4"/>' }
+  };
+  function glass(type, col, cls) {
+    var g = GL[type] || GL.highball;
+    return '<svg class="' + (cls || '') + '" viewBox="0 0 80 100" aria-hidden="true" fill="none" stroke="#F4E9D8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">' +
+      '<path class="liq" d="' + g.l + '" fill="' + col + '" stroke="none" opacity=".92"/>' +
+      (g.g ? '<g stroke="#F4E9D8" stroke-width="1.6" color="#F8F2E2">' + g.g + '</g>' : '') + g.o + '</svg>';
+  }
+
+  /* ================= ROUTER ================= */
+  var VIEWS = ['inicio', 'menu', 'reserva', 'contacto'];
+  var current = null;
+  function go(v, opts) {
+    if (VIEWS.indexOf(v) < 0) v = 'inicio';
+    var changed = v !== current; current = v;
+    $$('[data-view]').forEach(function (s) { s.hidden = s.getAttribute('data-view') !== v; });
+    $$('.nav a, .tabbar a').forEach(function (a) { if (a.getAttribute('data-go') === v) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    if (changed && !(opts && opts.keepScroll)) W.scrollTo({ top: 0, behavior: 'auto' });
+    if (location.hash !== '#' + v) { try { history.replaceState(null, '', '#' + v); } catch (e) {} }
+    if (v === 'inicio') scene.start(); else scene.stop();
+    if (v === 'reserva') renderRes();
+  }
+  D.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-go]');
+    if (!a) return;
+    e.preventDefault(); go(a.getAttribute('data-go'));
+  });
+  W.addEventListener('hashchange', function () { go(location.hash.slice(1)); });
+
+  /* ================= ESTADO ABIERTO ================= */
+  function renderStatus() {
+    var s = openState(), el = $('#status');
+    el.classList.toggle('is-open', s.open);
+    $('.status__txt', el).textContent = s.open ? 'Abierto · cierra ' + hhmm(s.closes) : 'Cerrado · ' + s.txt;
+    $('.status__txt-short', el).textContent = s.open ? 'Abierto' : 'Cerrado';
+  }
+
+  /* ================= TOAST / COPIAR ================= */
+  var toastT;
+  function toast(msg) { var t = $('#toast'); t.textContent = msg; t.classList.add('is-on'); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove('is-on'); }, 2400); }
+  D.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-copy]'); if (!b) return;
+    var txt = b.getAttribute('data-copy');
+    function ok() { b.classList.add('is-ok'); var o = b.textContent; b.textContent = 'Copiado'; setTimeout(function () { b.classList.remove('is-ok'); b.textContent = o; }, 1600); toast('Copiado: ' + txt); }
+    try { navigator.clipboard.writeText(txt).then(ok, function () { toast(txt); }); } catch (err) { toast(txt); }
+  });
+
+  /* ================= ESCENA (canvas) ================= */
+  var scene = (function () {
+    var cv = $('#scene'), ctx = cv.getContext('2d');
+    var W0, H0, dpr, bg, fg, geo, wins = [], ground = [], drops = [], raf = 0, running = false, rain = !REDUCE;
+    var mx = 0, my = 0, tmx = 0, tmy = 0, lastToggle = 0, cat = null;
+    var PAD = 40;
+    function rnd(a, b) { return a + Math.random() * (b - a); }
+    function off(w, h) { var c = D.createElement('canvas'); c.width = Math.round(w * dpr); c.height = Math.round(h * dpr); var x = c.getContext('2d'); x.scale(dpr, dpr); return [c, x]; }
+    function quad(face, u0, u1, v0, v1) {
+      return [face(u0, v1), face(u1, v1), face(u1, v0), face(u0, v0)];
+    }
+    function polyPath(c, pts) { c.beginPath(); c.moveTo(pts[0][0], pts[0][1]); for (var i = 1; i < pts.length; i++) c.lineTo(pts[i][0], pts[i][1]); c.closePath(); }
+    function inPoly(x, y, pts) { var r = false; for (var i = 0, j = pts.length - 1; i < pts.length; j = i++) { var a = pts[i], b = pts[j]; if (((a[1] > y) !== (b[1] > y)) && (x < (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0])) r = !r; } return r; }
+
+    function layout() {
+      var r = cv.getBoundingClientRect();
+      if (!r.width) return false;
+      dpr = Math.min(2, W.devicePixelRatio || 1); W0 = r.width; H0 = r.height;
+      cv.width = Math.round(W0 * dpr); cv.height = Math.round(H0 * dpr);
+      var mobile = W0 < 860;
+      var g = H0 * (mobile ? .86 : .8), cx = W0 * (mobile ? .5 : .73) + PAD;
+      var ow = Math.max(70, Math.min(W0 * .11, 150)), bh = H0 * (mobile ? .64 : .6), top = g - bh;
+      var sw = Math.min(W0 * (mobile ? .34 : .25), 380), xl = cx - ow / 2, xr = cx + ow / 2;
+      var L = function (u, v) { var x = xl - u * sw, yb = g - u * sw * .03, yt = top + u * sw * .11; return [x, yb + (yt - yb) * v]; };
+      var R = function (u, v) { var x = xr + u * sw, yb = g - u * sw * .03, yt = top + u * sw * .11; return [x, yb + (yt - yb) * v]; };
+      var C = function (u, v) { return [xl + u * ow, g + (top - g) * v]; };
+      geo = { g: g, cx: cx, ow: ow, bh: bh, top: top, sw: sw, xl: xl, xr: xr, L: L, R: R, C: C, mobile: mobile, lamp: mobile ? W0 * .1 + PAD : W0 * .36 + PAD };
+      buildBg(); buildFg();
+      drops = []; var n = Math.round(W0 * H0 / 7000);
+      for (var i = 0; i < n; i++) drops.push({ x: rnd(0, W0 + PAD * 2), y: rnd(-H0, H0), l: rnd(8, 18), v: rnd(380, 620) });
+      return true;
+    }
+    function buildBg() {
+      var w = W0 + PAD * 2, h = H0, o = off(w, h), c = o[1]; bg = o[0];
+      var sky = c.createLinearGradient(0, 0, 0, h); sky.addColorStop(0, '#060A13'); sky.addColorStop(.6, '#132241'); sky.addColorStop(1, '#1C2C4E');
+      c.fillStyle = sky; c.fillRect(0, 0, w, h);
+      var haze = c.createRadialGradient(geo.cx, geo.g, 10, geo.cx, geo.g, w * .6); haze.addColorStop(0, 'rgba(255,170,80,.18)'); haze.addColorStop(1, 'rgba(255,170,80,0)');
+      c.fillStyle = haze; c.fillRect(0, 0, w, h);
+      // edificios lejanos
+      var x = 0;
+      while (x < w) {
+        var bw = rnd(50, 130), bh2 = rnd(h * .25, h * .55);
+        c.fillStyle = 'rgb(' + Math.round(rnd(14, 22)) + ',' + Math.round(rnd(20, 30)) + ',' + Math.round(rnd(40, 54)) + ')';
+        c.fillRect(x, geo.g - bh2, bw, bh2);
+        for (var yy = geo.g - bh2 + 10; yy < geo.g - 20; yy += 16) for (var xx = x + 8; xx < x + bw - 8; xx += 14) if (Math.random() < .08) { c.fillStyle = Math.random() < .7 ? 'rgba(255,190,110,.55)' : 'rgba(150,190,255,.45)'; c.fillRect(xx, yy, 5, 7); }
+        x += bw + rnd(0, 6);
+      }
+    }
+    function buildFg() {
+      var w = W0 + PAD * 2, h = H0, o = off(w, h), c = o[1]; fg = o[0];
+      var G = geo, g = G.g, i, j;
+      // vereda y calle
+      c.fillStyle = '#1A2338'; c.fillRect(0, g, w, h * .045);
+      c.fillStyle = '#2E3A57'; c.fillRect(0, g + h * .045, w, 2);
+      var st = c.createLinearGradient(0, g, 0, h); st.addColorStop(0, '#0D1424'); st.addColorStop(1, '#070B14');
+      c.fillStyle = st; c.fillRect(0, g + h * .045 + 2, w, h);
+      // caras
+      function face(fn, col1, col2) {
+        var p = [fn(0, 1), fn(1, 1), fn(1, 0), fn(0, 0)];
+        var gr = c.createLinearGradient(0, G.top, 0, g); gr.addColorStop(0, col1); gr.addColorStop(1, col2);
+        c.fillStyle = gr; polyPath(c, p); c.fill();
+      }
+      face(G.L, '#1E2840', '#2B3550');
+      face(G.R, '#161F33', '#212A42');
+      face(G.C, '#2A3654', '#3A4566');
+      // pisos
+      var gf = .27, floors = 3, fh = (1 - gf - .06) / floors;
+      // franja roja del bar (fachada pintada)
+      [G.L, G.R, G.C].forEach(function (fn) {
+        c.fillStyle = '#6E2A24'; polyPath(c, quad(fn, 0, 1, gf - .03, gf + .015)); c.fill();
+        c.strokeStyle = 'rgba(244,233,216,.18)'; c.lineWidth = 1;
+        for (i = 1; i <= floors; i++) { var v = gf + i * fh + .01; var a = fn(0, v), b = fn(1, v); c.beginPath(); c.moveTo(a[0], a[1]); c.lineTo(b[0], b[1]); c.stroke(); }
+        c.fillStyle = '#334063'; polyPath(c, quad(fn, 0, 1, .955, 1)); c.fill();
+      });
+      // ventanas de pisos altos
+      wins = [];
+      function addWin(fn, u0, u1, v0, v1, side) {
+        var p = quad(fn, u0, u1, v0, v1);
+        c.fillStyle = '#0A0F1B'; polyPath(c, p); c.fill();
+        c.strokeStyle = 'rgba(244,233,216,.22)'; c.lineWidth = 1; polyPath(c, p); c.stroke();
+        // balcón
+        var b = quad(fn, u0 - .015, u1 + .015, v0 - .028, v0 + .012);
+        c.strokeStyle = 'rgba(200,210,230,.42)'; polyPath(c, b); c.stroke();
+        for (var k = 1; k < 6; k++) { var uu = u0 - .015 + (u1 - u0 + .03) * k / 6, a = fn(uu, v0 - .028), bb = fn(uu, v0 + .012); c.beginPath(); c.moveTo(a[0], a[1]); c.lineTo(bb[0], bb[1]); c.stroke(); }
+        wins.push({ p: p, on: Math.random() < .45, tone: Math.random() < .18 ? 'tv' : 'warm', fl: Math.random() });
+      }
+      for (i = 0; i < floors; i++) {
+        var v0 = gf + i * fh + fh * .22, v1 = gf + i * fh + fh * .85;
+        for (j = 0; j < 4; j++) { var u0 = .08 + j * .23; addWin(G.L, u0, u0 + .12, v0, v1); addWin(G.R, u0, u0 + .12, v0, v1); }
+        addWin(G.C, .25, .75, v0, v1);
+      }
+      // cúpula sobre la ochava
+      var t0 = G.C(0, 1), t1 = G.C(1, 1), cw = t1[0] - t0[0], ty = t0[1];
+      c.fillStyle = '#2C3757'; c.fillRect(t0[0] + cw * .12, ty - cw * .2, cw * .76, cw * .2);
+      c.strokeStyle = 'rgba(244,233,216,.25)'; c.strokeRect(t0[0] + cw * .12, ty - cw * .2, cw * .76, cw * .2);
+      c.beginPath(); c.ellipse(t0[0] + cw / 2, ty - cw * .2, cw * .38, cw * .42, 0, Math.PI, 0); c.fillStyle = '#25304D'; c.fill(); c.stroke();
+      c.beginPath(); c.moveTo(t0[0] + cw / 2, ty - cw * .62); c.lineTo(t0[0] + cw / 2, ty - cw * .8); c.strokeStyle = 'rgba(244,233,216,.5)'; c.lineWidth = 2; c.stroke();
+      c.beginPath(); c.arc(t0[0] + cw / 2, ty - cw * .82, 3, 0, Math.PI * 2); c.fillStyle = '#C9A35B'; c.fill();
+      // planta baja: ventanales del bar
+      ground = [];
+      function bar(fn, u0, u1) {
+        var p = quad(fn, u0, u1, .03, gf - .06);
+        var a = p[0], b = p[2];
+        var gr = c.createLinearGradient(0, Math.min(a[1], p[1][1]), 0, b[1]); gr.addColorStop(0, '#FFC977'); gr.addColorStop(1, '#C8702A');
+        c.fillStyle = gr; polyPath(c, p); c.fill();
+        c.strokeStyle = '#1A1208'; c.lineWidth = 3; polyPath(c, p); c.stroke();
+        var m1 = fn((u0 + u1) / 2, .03), m2 = fn((u0 + u1) / 2, gf - .06); c.lineWidth = 2; c.beginPath(); c.moveTo(m1[0], m1[1]); c.lineTo(m2[0], m2[1]); c.stroke();
+        ground.push({ p: p, fn: fn, u0: u0, u1: u1 });
+      }
+      bar(G.L, .06, .44); bar(G.L, .54, .92); bar(G.R, .06, .44); bar(G.R, .54, .92);
+      // puerta
+      var dp = quad(G.C, .22, .78, 0, gf - .1);
+      var dg = c.createLinearGradient(0, dp[0][1], 0, dp[2][1]); dg.addColorStop(0, '#FFD08A'); dg.addColorStop(1, '#D98330');
+      c.fillStyle = dg; polyPath(c, dp); c.fill(); c.strokeStyle = '#1A1208'; c.lineWidth = 3; polyPath(c, dp); c.stroke();
+      var dm1 = G.C(.5, 0), dm2 = G.C(.5, gf - .1); c.beginPath(); c.moveTo(dm1[0], dm1[1]); c.lineTo(dm2[0], dm2[1]); c.stroke();
+      geo.door = dp; geo.gf = gf;
+      // reflejos en la calle mojada
+      c.save(); c.globalAlpha = .35; c.globalCompositeOperation = 'lighter';
+      try { c.filter = 'blur(6px)'; } catch (e) {}
+      ground.concat([{ p: dp }]).forEach(function (wv) {
+        var p = wv.p, yb = g + h * .05;
+        var pts = p.map(function (q) { return [q[0], yb + (g - q[1]) * .9]; });
+        var gr = c.createLinearGradient(0, yb, 0, yb + h * .2); gr.addColorStop(0, 'rgba(255,170,80,.8)'); gr.addColorStop(1, 'rgba(255,170,80,0)');
+        c.fillStyle = gr; polyPath(c, pts); c.fill();
+      });
+      c.restore();
+      // farol
+      var lx = G.lamp, ly = g - G.bh * .62;
+      c.strokeStyle = '#0A0F1B'; c.lineWidth = 5; c.beginPath(); c.moveTo(lx, g + h * .045); c.lineTo(lx, ly); c.quadraticCurveTo(lx, ly - 20, lx + 26, ly - 20); c.stroke();
+      c.fillStyle = '#0A0F1B'; c.beginPath(); c.moveTo(lx + 14, ly - 22); c.lineTo(lx + 40, ly - 22); c.lineTo(lx + 34, ly - 12); c.lineTo(lx + 20, ly - 12); c.closePath(); c.fill();
+      geo.lampHead = [lx + 27, ly - 10];
+      cat = { x: G.xl - G.ow * .1, y: g + 2 };
+    }
+    function drawWindows(c, t) {
+      wins.forEach(function (w) {
+        if (!w.on) return;
+        var p = w.p, gr = c.createLinearGradient(0, p[0][1], 0, p[2][1]);
+        if (w.tone === 'tv') { var f = .7 + .3 * Math.sin(t / 180 + w.fl * 10) * Math.sin(t / 73 + w.fl * 3); gr.addColorStop(0, 'rgba(140,180,255,' + (.75 * f) + ')'); gr.addColorStop(1, 'rgba(80,120,220,' + (.6 * f) + ')'); }
+        else { gr.addColorStop(0, 'rgba(255,205,130,.95)'); gr.addColorStop(1, 'rgba(230,140,60,.85)'); }
+        c.fillStyle = gr; polyPath(c, p); c.fill();
+      });
+    }
+    function drawPeople(c, t) {
+      c.fillStyle = 'rgba(40,22,10,.5)';
+      ground.forEach(function (gw, i) {
+        c.save(); polyPath(c, gw.p); c.clip();
+        for (var k = 0; k < 2; k++) {
+          var u = gw.u0 + (gw.u1 - gw.u0) * ((k + .5) / 2 + .06 * Math.sin(t / 1400 + i * 2 + k));
+          var base = gw.fn(u, .03), hgt = (gw.fn(u, .2)[1] - base[1]);
+          var sx = Math.abs(hgt) * .2, bx = base[0], by = base[1] + hgt * .05;
+          var sway = Math.sin(t / 900 + i + k * 1.7) * 2;
+          c.beginPath(); c.ellipse(bx + sway, by + hgt * .55, sx, Math.abs(hgt) * .42, 0, 0, Math.PI * 2); c.fill();
+          c.beginPath(); c.arc(bx + sway * 1.4, by + hgt * 1.0, sx * .7, 0, Math.PI * 2); c.fill();
+        }
+        c.restore();
+      });
+    }
+    function drawSign(c, t) {
+      var G = geo, a = G.C(0, G.gf - .015), b = G.C(1, G.gf - .015), w = b[0] - a[0];
+      var fl = 1;
+      var cyc = (t / 1000) % 9; if (cyc > 7.6 && cyc < 7.75) fl = .25; else if (cyc > 7.9 && cyc < 8) fl = .5;
+      var size = Math.max(14, w * .24);
+      c.save(); c.font = '800 ' + size + 'px "Big Shoulders Display", Impact, "Arial Narrow", sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle';
+      c.shadowColor = 'rgba(255,181,71,' + (.9 * fl) + ')'; c.shadowBlur = 18; c.fillStyle = 'rgba(255,214,150,' + fl + ')';
+      c.fillText('OCHAVA', a[0] + w / 2, a[1] - size * .1);
+      c.restore();
+    }
+    function drawLamp(c, t) {
+      var p = geo.lampHead, hum = .92 + .08 * Math.sin(t / 60) * Math.sin(t / 23);
+      c.save(); c.globalCompositeOperation = 'lighter';
+      var gr = c.createRadialGradient(p[0], p[1], 2, p[0], p[1], H0 * .55); gr.addColorStop(0, 'rgba(255,190,90,' + (.55 * hum) + ')'); gr.addColorStop(.15, 'rgba(255,170,70,' + (.22 * hum) + ')'); gr.addColorStop(1, 'rgba(255,160,60,0)');
+      c.fillStyle = gr; c.fillRect(p[0] - H0, p[1] - H0, H0 * 2, H0 * 2);
+      // cono de luz
+      var cg = c.createLinearGradient(0, p[1], 0, geo.g + H0 * .05); cg.addColorStop(0, 'rgba(255,190,90,.22)'); cg.addColorStop(1, 'rgba(255,190,90,.03)');
+      c.fillStyle = cg; c.beginPath(); c.moveTo(p[0] - 8, p[1]); c.lineTo(p[0] + 8, p[1]); c.lineTo(p[0] + H0 * .32, geo.g + H0 * .045); c.lineTo(p[0] - H0 * .32, geo.g + H0 * .045); c.closePath(); c.fill();
+      c.beginPath(); c.arc(p[0], p[1], 4, 0, Math.PI * 2); c.fillStyle = '#FFE7B8'; c.fill();
+      c.restore();
+    }
+    function drawCat(c, t) {
+      if (!cat) return;
+      var x = cat.x, y = cat.y, s = Math.max(.7, geo.ow / 150);
+      c.save(); c.fillStyle = '#05070D'; c.translate(x, y); c.scale(s, s);
+      c.beginPath(); c.ellipse(0, -14, 10, 14, 0, 0, Math.PI * 2); c.fill();
+      c.beginPath(); c.arc(0, -32, 8, 0, Math.PI * 2); c.fill();
+      c.beginPath(); c.moveTo(-7, -36); c.lineTo(-5, -46); c.lineTo(-1, -38); c.fill();
+      c.beginPath(); c.moveTo(7, -36); c.lineTo(5, -46); c.lineTo(1, -38); c.fill();
+      c.strokeStyle = '#05070D'; c.lineWidth = 4; c.lineCap = 'round';
+      var sw = Math.sin(t / 700) * 8; c.beginPath(); c.moveTo(8, -4); c.quadraticCurveTo(24, -2, 22 + sw * .3, -18 + sw); c.stroke();
+      c.fillStyle = 'rgba(255,200,90,.9)'; c.fillRect(-4, -33, 2, 1.6); c.fillRect(2, -33, 2, 1.6);
+      c.restore();
+    }
+    function drawRain(c, dt) {
+      c.save(); c.strokeStyle = 'rgba(190,210,240,.32)'; c.lineWidth = 1; c.beginPath();
+      for (var i = 0; i < drops.length; i++) {
+        var d = drops[i]; d.y += d.v * dt; d.x -= d.v * dt * .12;
+        if (d.y > geo.g + H0 * .06 + Math.random() * H0 * .1) { d.y = rnd(-40, -5); d.x = rnd(0, W0 + PAD * 2); }
+        c.moveTo(d.x, d.y); c.lineTo(d.x + d.l * .12, d.y - d.l);
+      }
+      c.stroke(); c.restore();
+    }
+    var last = 0;
+    function frame(t) {
+      if (!running) return;
+      var dt = last ? Math.min(.05, (t - last) / 1000) : .016; last = t;
+      mx += (tmx - mx) * .06; my += (tmy - my) * .06;
+      if (t - lastToggle > 1800 && !REDUCE) { lastToggle = t; var w = wins[Math.floor(Math.random() * wins.length)]; if (w) w.on = !w.on; }
+      draw(t, dt);
+      raf = W.requestAnimationFrame(frame);
+    }
+    function draw(t, dt) {
+      if (!bg) return;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, W0, H0);
+      ctx.drawImage(bg, -PAD - mx * 8, -my * 4, W0 + PAD * 2, H0);
+      ctx.save(); ctx.translate(-PAD - mx * 20, -my * 6);
+      ctx.drawImage(fg, 0, 0, W0 + PAD * 2, H0);
+      drawWindows(ctx, t); drawPeople(ctx, t); drawSign(ctx, t); drawCat(ctx, t); drawLamp(ctx, t);
+      if (rain) drawRain(ctx, dt || .016);
+      ctx.restore();
+    }
+    cv.addEventListener('pointermove', function (e) { var r = cv.getBoundingClientRect(); tmx = (e.clientX - r.left) / r.width - .5; tmy = (e.clientY - r.top) / r.height - .5; });
+    cv.addEventListener('pointerleave', function () { tmx = 0; tmy = 0; });
+    cv.addEventListener('click', function (e) {
+      var r = cv.getBoundingClientRect(), x = e.clientX - r.left + PAD + mx * 20, y = e.clientY - r.top + my * 6;
+      for (var i = 0; i < wins.length; i++) if (inPoly(x, y, wins[i].p)) { wins[i].on = !wins[i].on; if (!running) draw(performance.now(), 0); return; }
+      if (geo.door && inPoly(x, y, geo.door)) go('reserva');
+    });
+    $('#rainBtn').addEventListener('click', function () { rain = !rain; this.setAttribute('aria-pressed', rain); this.textContent = 'Llovizna: ' + (rain ? 'sí' : 'no'); if (!running) draw(performance.now(), 0); });
+    $('#rainBtn').setAttribute('aria-pressed', rain); $('#rainBtn').textContent = 'Llovizna: ' + (rain ? 'sí' : 'no');
+    var ro = 'ResizeObserver' in W ? new ResizeObserver(function () { if (layout()) draw(performance.now(), 0); }) : null;
+    if (ro) ro.observe(cv); else W.addEventListener('resize', function () { if (layout()) draw(performance.now(), 0); });
+    var visible = true;
+    if ('IntersectionObserver' in W) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible && current === 'inicio') api.start(); else api.stop(true); }).observe(cv);
+    if (D.fonts && D.fonts.ready) D.fonts.ready.then(function () { draw(performance.now(), 0); });
+    var api = {
+      start: function () { if (!bg && !layout()) return; draw(performance.now(), 0); if (REDUCE || running || !visible) return; running = true; last = 0; raf = W.requestAnimationFrame(frame); },
+      stop: function () { running = false; W.cancelAnimationFrame(raf); }
+    };
+    return api;
+  })();
+
+  /* ================= INICIO ================= */
+  function renderToday() {
+    var n = baNow(), dow = n.date.getDay(), ev = AGENDA[dow], s = openState(), hrs = HOURS[dow];
+    var html = '';
+    html += '<div class="today__card cut today__card--hot"><span class="k">Hoy, ' + DAYS[dow] + '</span><span class="v">' + (ev ? esc(ev.t) : 'Hoy descansamos') + '</span><span class="s">' + (ev ? 'Desde las ' + ev.h + '. <a href="#reserva" data-go="reserva">Reservar →</a>' : 'Volvemos el martes a las 18:00.') + '</span></div>';
+    html += '<div class="today__card cut"><span class="k">Horario de hoy</span><span class="v">' + (hrs ? hhmm(hrs[0]) + ' a ' + hhmm(hrs[1]) : 'Cerrado') + '</span><span class="s">' + (s.open ? 'Estamos abiertos ahora.' : 'Ahora cerrado, ' + esc(s.txt) + '.') + '</span></div>';
+    html += '<div class="today__card cut"><span class="k">Vermú de la semana</span><span class="v">Rosso de barril</span><span class="s">Con sifón, naranja y aceituna. ' + money(BYID.vermucasa.p) + '.</span></div>';
+    $('#today').innerHTML = html;
+  }
+  var weekSel = null;
+  function renderWeek() {
+    var n = baNow(), today = n.date.getDay(), order = [2, 3, 4, 5, 6, 0, 1];
+    if (weekSel == null) weekSel = AGENDA[today] ? today : 4;
+    $('#week').innerHTML = order.map(function (d) {
+      var ev = AGENDA[d];
+      return '<button type="button" class="day cut' + (d === today ? ' is-today' : '') + (ev ? '' : ' is-closed') + '" data-d="' + d + '" aria-pressed="' + (d === weekSel) + '"><span class="d">' + DAYS_SHORT[d] + '</span><span class="n">' + (ev ? esc(ev.t) : 'Cerrado') + '</span><span class="h">' + (ev ? ev.h : '—') + '</span></button>';
+    }).join('');
+    var ev = AGENDA[weekSel];
+    $('#event').innerHTML = ev
+      ? '<div class="event__img" style="background-image:url(img/' + ev.img + '.webp)" role="img" aria-label="Ambiente del bar"></div><div class="event__body"><span class="event__when">' + DAYS[weekSel].toUpperCase() + ' · ' + ev.h + ' · ENTRADA LIBRE</span><h3 class="event__title">' + esc(ev.t) + '</h3><p>' + esc(ev.d) + '</p><button class="btn btn--sodium cut" type="button" id="evRes">Reservar para el ' + DAYS[weekSel] + ' <span class="ar">→</span></button></div>'
+      : '<div class="event__img" style="background-image:url(img/barra.webp)" role="img" aria-label="Barra del bar"></div><div class="event__body"><span class="event__when">LUNES</span><h3 class="event__title">Hoy descansamos</h3><p>Los lunes el bar está cerrado. Te esperamos desde el martes a las 18:00.</p></div>';
+  }
+  $('#week').addEventListener('click', function (e) { var b = e.target.closest('.day'); if (!b) return; weekSel = +b.getAttribute('data-d'); renderWeek(); });
+  $('#event').addEventListener('click', function (e) {
+    if (!e.target.closest('#evRes')) return;
+    var d = new Date(baNow().date), k = 0; while (d.getDay() !== weekSel && k < 8) { d.setDate(d.getDate() + 1); k++; }
+    R.date = d; R.time = null; calMonth = new Date(d.getFullYear(), d.getMonth(), 1); go('reserva');
+  });
+  function renderFeat() {
+    $('#feat').innerHTML = ['ochava', 'vermucasa', 'garua'].map(function (id) {
+      var x = BYID[id];
+      return '<button type="button" class="feat__card cut" data-item="' + id + '">' + glass(x.g, x.col) + '<span class="t">' + esc(x.n) + '</span><span class="s">' + esc(x.d) + '</span><span class="p">' + money(x.p) + '</span></button>';
+    }).join('');
+  }
+
+  /* ================= CARTA ================= */
+  var menuCat = 'autor', filters = {}, query = '';
+  function renderTabs() {
+    $('#tabs').innerHTML = CATS.map(function (c) { return '<button class="tab" type="button" role="tab" data-c="' + c.id + '" aria-selected="' + (c.id === menuCat && !query) + '">' + c.name + '</button>'; }).join('');
+  }
+  function norm(s) { return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function renderItems() {
+    var q = norm(query.trim());
+    var list = MENU.filter(function (x) {
+      if (q) { if (norm(x.n + ' ' + x.d + ' ' + x.ing.join(' ')).indexOf(q) < 0) return false; }
+      else if (x.c !== menuCat) return false;
+      for (var f in filters) if (filters[f] && x.t.indexOf(f) < 0) return false;
+      return true;
+    });
+    var TAGN = { casa: ['De la casa', 'tg--casa'], sin: ['Sin alcohol', 'tg--sin'], veg: ['Veggie', 'tg--veg'], tacc: ['Sin TACC', ''], compartir: ['Para compartir', ''] };
+    $('#items').innerHTML = list.length ? list.map(function (x) {
+      return '<button type="button" class="item cut" data-item="' + x.id + '">' + glass(x.g, x.col) + '<div><div class="item__top"><span class="item__name">' + esc(x.n) + '</span><span class="item__price">' + money(x.p) + '</span></div><p class="item__desc">' + esc(x.d) + '</p>' +
+        (x.t.length ? '<div class="item__tags">' + x.t.map(function (t) { return '<span class="tg ' + TAGN[t][1] + '">' + TAGN[t][0] + '</span>'; }).join('') + '</div>' : '') + '</div></button>';
+    }).join('') : '<p class="empty">No hay nada que coincida' + (q ? ' con <b>“' + esc(query) + '”</b>' : '') + ' con esos filtros. Probá quitar alguno.</p>';
+  }
+  $('#tabs').addEventListener('click', function (e) { var b = e.target.closest('.tab'); if (!b) return; menuCat = b.getAttribute('data-c'); query = ''; $('#q').value = ''; renderTabs(); renderItems(); });
+  $('#filters').addEventListener('click', function (e) { var b = e.target.closest('.chip'); if (!b) return; var f = b.getAttribute('data-f'); filters[f] = !filters[f]; b.setAttribute('aria-pressed', filters[f]); renderItems(); });
+  $('#q').addEventListener('input', function () { query = this.value; renderTabs(); renderItems(); });
+
+  // recomendador
+  var quiz = { flavor: 'fresco', abv: 'si', moment: 'empieza' };
+  function recommend() {
+    var drinks = MENU.filter(function (x) { return x.c !== 'picar'; });
+    var scored = drinks.map(function (x) {
+      var s = 0;
+      if (x.f === quiz.flavor) s += 3;
+      if (x.a === quiz.abv) s += 3; else if (quiz.abv === 'no' && x.a !== 'no') s -= 10; else if (quiz.abv !== 'no' && x.a === 'no') s -= 2; else s += 1;
+      if (x.m === quiz.moment) s += 2;
+      if (x.t.indexOf('casa') > -1) s += .5;
+      return { x: x, s: s };
+    }).sort(function (a, b) { return b.s - a.s; });
+    var top = scored[0].x, alts = scored.slice(1, 3).map(function (o) { return o.x; });
+    var why = { fresco: 'fresco', amargo: 'amargo', dulce: 'dulce', intenso: 'intenso' }[quiz.flavor];
+    $('#rec').innerHTML = '<button type="button" class="rec__main cut" data-item="' + top.id + '">' + glass(top.g, top.col) + '<span><span class="n">' + esc(top.n) + '</span><br><span class="w">Algo ' + why + (quiz.abv === 'no' ? ', sin alcohol' : quiz.abv === 'suave' ? ' y liviano' : '') + '. ' + money(top.p) + ' · ver ficha</span></span></button>' +
+      '<p class="rec__alt">También te puede gustar: ' + alts.map(function (a) { return '<button type="button" data-item="' + a.id + '">' + esc(a.n) + '</button>'; }).join(' o ') + '.</p>';
+  }
+  $$('.quiz .opts').forEach(function (g) {
+    g.addEventListener('click', function (e) {
+      var b = e.target.closest('.chip'); if (!b) return;
+      $$('.chip', g).forEach(function (c) { c.setAttribute('aria-pressed', c === b); });
+      quiz[g.getAttribute('data-q')] = b.getAttribute('data-v'); recommend();
+    });
+  });
+
+  // ficha
+  var drawer = $('#drawer'), scrim = $('#scrim'), lastFocus = null;
+  function openItem(id) {
+    var x = BYID[id]; if (!x) return;
+    var cat = CATS.filter(function (c) { return c.id === x.c; })[0];
+    var sim = MENU.filter(function (y) { return y.id !== x.id && y.c !== 'picar' === (x.c !== 'picar') && (y.f === x.f || y.c === x.c); }).slice(0, 3);
+    var fl = x.fl || {}, meters = Object.keys(fl).length ? '<h4>Perfil</h4><div class="meters">' + [['amargo', 'Amargo'], ['dulce', 'Dulce'], ['citrico', 'Cítrico']].map(function (m) { return '<div class="meter"><span>' + m[1] + '</span><i style="--v:' + (fl[m[0]] || 0) + '%"></i></div>'; }).join('') + '</div>' : '';
+    drawer.innerHTML = '<button class="drawer__close" type="button" aria-label="Cerrar ficha">×</button>' +
+      '<div class="drawer__art">' + glass(x.g, x.col) + '</div>' +
+      '<p class="cat">' + esc(cat.name) + '</p><h3>' + esc(x.n) + '</h3><p class="price">' + money(x.p) + '</p><p class="desc">' + esc(x.d) + '</p>' +
+      '<h4>' + (x.c === 'picar' ? 'Lleva' : 'Ingredientes') + '</h4><ul class="ing">' + x.ing.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' + meters +
+      (sim.length ? '<h4>Si te gusta, probá</h4><div class="similar">' + sim.map(function (y) { return '<button type="button" data-item="' + y.id + '">' + esc(y.n) + '<span>' + money(y.p) + '</span></button>'; }).join('') + '</div>' : '') +
+      '<a class="btn btn--sodium cut drawer__cta" href="#reserva" data-go="reserva">Reservar mesa para probarlo →</a>';
+    if (!drawer.classList.contains('is-open')) lastFocus = D.activeElement;
+    drawer.classList.add('is-open'); scrim.classList.add('is-open'); drawer.setAttribute('aria-hidden', 'false');
+    drawer.scrollTop = 0; $('.drawer__close', drawer).focus();
+  }
+  function closeItem() { drawer.classList.remove('is-open'); scrim.classList.remove('is-open'); drawer.setAttribute('aria-hidden', 'true'); if (lastFocus) try { lastFocus.focus(); } catch (e) {} }
+  D.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-item]'); if (b) { openItem(b.getAttribute('data-item')); return; }
+    if (e.target.closest('.drawer__close') || e.target === scrim) closeItem();
+    if (e.target.closest('.drawer [data-go]')) closeItem();
+  });
+  D.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeItem(); });
+
+  /* ================= RESERVA ================= */
+  var R = { pax: 2, date: null, time: null, zone: null, occ: [] };
+  var calMonth = null;
+  function sameDay(a, b) { return a && b && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate(); }
+  function slotsFor(d) {
+    var hrs = HOURS[d.getDay()]; if (!hrs) return [];
+    var out = [], n = baNow(), isToday = sameDay(d, n.date);
+    for (var h = hrs[0]; h <= hrs[1] - 1.5; h += .5) {
+      if (isToday && h < n.h + .5) continue;
+      var seed = (d.getDate() * 31 + d.getMonth() * 7 + h * 13) % 17;
+      var busy = (d.getDay() >= 4 || d.getDay() === 6) && h >= 21 && h <= 23;
+      var st = seed < (busy ? 6 : 2) ? 'full' : seed < (busy ? 11 : 5) ? 'few' : 'ok';
+      out.push({ h: h, st: st });
+    }
+    return out;
+  }
+  function firstAvailable() {
+    var d = new Date(baNow().date);
+    for (var i = 0; i < 14; i++) { if (slotsFor(d).some(function (s) { return s.st !== 'full'; })) return d; d.setDate(d.getDate() + 1); }
+    return null;
+  }
+  function niceDate(d) { return DAYS[d.getDay()] + ' ' + d.getDate() + ' de ' + MONTHS[d.getMonth()]; }
+  function renderCal() {
+    var n = baNow(), today = n.date, maxM = new Date(today.getFullYear(), today.getMonth() + 2, 1);
+    if (!calMonth) calMonth = new Date((R.date || today).getFullYear(), (R.date || today).getMonth(), 1);
+    $('#calTitle').textContent = MONTHS[calMonth.getMonth()] + ' ' + calMonth.getFullYear();
+    $('#calPrev').disabled = calMonth <= new Date(today.getFullYear(), today.getMonth(), 1);
+    $('#calNext').disabled = calMonth >= maxM;
+    var html = ['L', 'M', 'M', 'J', 'V', 'S', 'D'].map(function (x) { return '<span class="cal__dow" aria-hidden="true">' + x + '</span>'; }).join('');
+    var start = (calMonth.getDay() + 6) % 7, days = new Date(calMonth.getFullYear(), calMonth.getMonth() + 1, 0).getDate();
+    for (var i = 0; i < start; i++) html += '<span></span>';
+    for (var dd = 1; dd <= days; dd++) {
+      var d = new Date(calMonth.getFullYear(), calMonth.getMonth(), dd);
+      var past = d < today, closed = !HOURS[d.getDay()], noSlots = !past && !closed && !slotsFor(d).some(function (s) { return s.st !== 'full'; });
+      var dis = past || closed || noSlots, ev = AGENDA[d.getDay()];
+      var label = niceDate(d) + (closed ? ', cerrado' : noSlots ? ', completo' : ev ? ', ' + ev.t : '');
+      html += '<button type="button" class="cal__d' + (sameDay(d, today) ? ' is-today' : '') + (ev && !dis ? ' has-ev' : '') + '" data-day="' + dd + '" aria-label="' + esc(label) + '" aria-pressed="' + sameDay(d, R.date) + '"' + (dis ? ' disabled' : '') + '>' + dd + '</button>';
+    }
+    $('#calGrid').innerHTML = html;
+    var ev2 = R.date && AGENDA[R.date.getDay()];
+    $('#calEv').innerHTML = R.date ? (ev2 ? 'Ese día: <b>' + esc(ev2.t) + '</b> desde las ' + ev2.h + '.' : '') : 'Los lunes está cerrado. Los puntos marcan noches con música.';
+  }
+  function renderSlots() {
+    var el = $('#slots');
+    if (!R.date) { el.innerHTML = '<p class="slots__empty">Elegí un día para ver los horarios.</p>'; return; }
+    var list = slotsFor(R.date);
+    if (R.time != null && !list.some(function (s) { return s.h === R.time && s.st !== 'full'; })) R.time = null;
+    el.innerHTML = list.length ? list.map(function (s) {
+      return '<button type="button" class="slot' + (s.st === 'few' ? ' is-few' : '') + '" data-h="' + s.h + '" aria-pressed="' + (s.h === R.time) + '"' + (s.st === 'full' ? ' disabled' : '') + '>' + hhmm(s.h) + '<small>' + (s.st === 'full' ? 'Completo' : s.st === 'few' ? 'Pocas mesas' : 'Libre') + '</small></button>';
+    }).join('') : '<p class="slots__empty">No quedan horarios para ese día. Probá otro.</p>';
+  }
+  function zoneOk(z) { return R.pax >= z.min && R.pax <= z.max; }
+  function renderZones() {
+    if (R.zone && !zoneOk(ZBY[R.zone])) R.zone = null;
+    $('#zlist').innerHTML = ZONES.map(function (z) {
+      var ok = zoneOk(z);
+      return '<button type="button" class="zbtn cut" data-z="' + z.id + '" aria-pressed="' + (R.zone === z.id) + '"' + (ok ? '' : ' disabled') + '><b>' + z.n + '</b><span>' + (ok ? z.s : 'No disponible para ' + R.pax + (R.pax === 1 ? ' persona' : ' personas')) + '</span></button>';
+    }).join('');
+    $$('#planSvg .zone').forEach(function (g) {
+      var z = ZBY[g.getAttribute('data-z')], ok = zoneOk(z);
+      g.classList.toggle('is-on', R.zone === z.id); g.classList.toggle('is-off', !ok);
+      g.setAttribute('aria-pressed', R.zone === z.id); g.setAttribute('aria-disabled', !ok);
+    });
+  }
+  function renderTicket() {
+    function set(id, v) { var e = $(id); e.textContent = v || '—'; e.classList.toggle('empty-v', !v); }
+    set('#tPax', R.pax + (R.pax === 1 ? ' persona' : ' personas'));
+    set('#tDay', R.date ? niceDate(R.date) : '');
+    set('#tTime', R.time != null ? hhmm(R.time) + ' h' : '');
+    set('#tZone', R.zone ? ZBY[R.zone].n : '');
+    set('#tName', ($('#rName').value || '').trim());
+    $('#v1').textContent = R.pax + (R.pax === 1 ? ' persona' : ' personas');
+    $('#v2').textContent = R.date ? niceDate(R.date) : '';
+    $('#v3').textContent = R.time != null ? hhmm(R.time) : '';
+    $('#v4').textContent = R.zone ? ZBY[R.zone].n : '';
+    $('#s1').classList.add('is-done');
+    $('#s2').classList.toggle('is-done', !!R.date);
+    $('#s3').classList.toggle('is-done', R.time != null);
+    $('#s4').classList.toggle('is-done', !!R.zone);
+    var nm = ($('#rName').value || '').trim().length >= 2, ph = ($('#rPhone').value || '').replace(/\D/g, '').length >= 8;
+    $('#s5').classList.toggle('is-done', nm && ph);
+    $('#paxMinus').disabled = R.pax <= 1; $('#paxPlus').disabled = R.pax >= 20;
+    $('#pax').textContent = R.pax;
+  }
+  function renderLast() {
+    var l = store.get('ochava-res');
+    $('#lastRes').innerHTML = l ? '<div class="last cut"><span>Tu última reserva: <b>' + esc(l.code) + '</b> · ' + esc(l.day) + ' a las ' + esc(l.time) + ' · ' + esc(l.pax) + '</span><button class="btn btn--line btn--sm" type="button" id="forget">Olvidar</button></div>' : '';
+  }
+  function renderRes() {
+    if (!R.date) R.date = firstAvailable();
+    renderCal(); renderSlots(); renderZones(); renderTicket(); renderLast();
+  }
+  $('#paxMinus').addEventListener('click', function () { if (R.pax > 1) { R.pax--; renderZones(); renderTicket(); } });
+  $('#paxPlus').addEventListener('click', function () { if (R.pax < 20) { R.pax++; renderZones(); renderTicket(); } });
+  $('#calPrev').addEventListener('click', function () { calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() - 1, 1); renderCal(); });
+  $('#calNext').addEventListener('click', function () { calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + 1, 1); renderCal(); });
+  $('#calGrid').addEventListener('click', function (e) { var b = e.target.closest('.cal__d'); if (!b || b.disabled) return; R.date = new Date(calMonth.getFullYear(), calMonth.getMonth(), +b.getAttribute('data-day')); renderCal(); renderSlots(); renderTicket(); });
+  $('#slots').addEventListener('click', function (e) { var b = e.target.closest('.slot'); if (!b || b.disabled) return; R.time = +b.getAttribute('data-h'); renderSlots(); renderTicket(); });
+  function pickZone(id) { var z = ZBY[id]; if (!z || !zoneOk(z)) { if (z) toast(z.n + ': no disponible para ' + R.pax + ' personas'); return; } R.zone = id; renderZones(); renderTicket(); }
+  $('#zlist').addEventListener('click', function (e) { var b = e.target.closest('.zbtn'); if (b) pickZone(b.getAttribute('data-z')); });
+  $('#planSvg').addEventListener('click', function (e) { var g = e.target.closest('.zone'); if (g) pickZone(g.getAttribute('data-z')); });
+  $('#planSvg').addEventListener('keydown', function (e) { var g = e.target.closest('.zone'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); pickZone(g.getAttribute('data-z')); } });
+  $('#occ').addEventListener('click', function (e) { var b = e.target.closest('.chip'); if (!b) return; var on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on); var v = b.getAttribute('data-v'); R.occ = R.occ.filter(function (x) { return x !== v; }); if (on) R.occ.push(v); });
+  ['#rName', '#rPhone'].forEach(function (s) { $(s).addEventListener('input', function () { this.closest('.field').classList.remove('is-bad'); $('.err', this.closest('.field')).textContent = ''; renderTicket(); }); });
+  $('#lastRes').addEventListener('click', function (e) { if (e.target.closest('#forget')) { try { W.localStorage.removeItem('ochava-res'); } catch (x) {} renderLast(); } });
+
+  $('#confirmBtn').addEventListener('click', function () {
+    var miss = [], name = $('#rName').value.trim(), phone = $('#rPhone').value.trim();
+    if (!R.date) miss.push('día'); if (R.time == null) miss.push('hora'); if (!R.zone) miss.push('lugar');
+    var fN = $('#fName'), fP = $('#fPhone');
+    if (name.length < 2) { miss.push('nombre'); fN.classList.add('is-bad'); $('.err', fN).textContent = 'Escribí tu nombre.'; }
+    if (phone.replace(/\D/g, '').length < 8) { miss.push('celular'); fP.classList.add('is-bad'); $('.err', fP).textContent = 'Necesitamos un celular de al menos 8 números.'; }
+    if (miss.length) { $('#missing').textContent = 'Falta: ' + miss.join(', ') + '.'; return; }
+    $('#missing').textContent = '';
+    var code = 'OCH-' + Math.random().toString(36).slice(2, 6).toUpperCase();
+    var data = { code: code, day: niceDate(R.date), time: hhmm(R.time), pax: R.pax + (R.pax === 1 ? ' persona' : ' personas'), zone: ZBY[R.zone].n };
+    store.set('ochava-res', data);
+    var msg = 'Hola Ochava, confirmo mi reserva:\n' +
+      '• Código: ' + code + '\n• Nombre: ' + name + '\n• Día: ' + data.day + '\n• Hora: ' + data.time + ' h\n• Personas: ' + R.pax + '\n• Lugar: ' + data.zone +
+      (R.occ.length ? '\n• Ocasión: ' + R.occ.join(', ') : '') + ($('#rNote').value.trim() ? '\n• Nota: ' + $('#rNote').value.trim() : '');
+    var done = $('#done');
+    done.innerHTML = '<span class="ok">● Reserva confirmada</span><div class="done__code">' + code + '</div>' +
+      '<p class="lead">' + esc(name) + ', te esperamos el <b>' + esc(data.day) + '</b> a las <b>' + data.time + ' h</b> en <b>' + esc(data.zone) + '</b> (' + esc(data.pax) + ').</p>' +
+      '<p style="color:var(--faint);font-size:14px">En la web real, este mensaje le llega al bar por WhatsApp y vos recibís la confirmación en tu celular. En esta demo no se envía nada.</p>' +
+      '<pre id="msg">' + esc(msg) + '</pre>' +
+      '<div class="row"><button class="btn btn--sodium cut" type="button" data-copy="' + esc(msg) + '">Copiar mensaje</button><button class="btn btn--line cut" type="button" id="again">Hacer otra reserva</button><a class="btn btn--line cut" href="#menu" data-go="menu">Mirar la carta</a></div>';
+    $('#resForm').hidden = true; done.hidden = false; renderLast();
+    W.scrollTo({ top: 0, behavior: REDUCE ? 'auto' : 'smooth' });
+  });
+  $('#done').addEventListener('click', function (e) {
+    if (!e.target.closest('#again')) return;
+    R.time = null; R.zone = null; $('#done').hidden = true; $('#resForm').hidden = false; renderRes();
+  });
+
+  /* ================= CONTACTO ================= */
+  function renderHours() {
+    var today = baNow().date.getDay();
+    $('#hours').innerHTML = '<tbody>' + [1, 2, 3, 4, 5, 6, 0].map(function (d) {
+      var h = HOURS[d];
+      return '<tr class="' + (d === today ? 'is-today' : '') + (h ? '' : ' is-closed') + '"><td>' + DAYS[d].charAt(0).toUpperCase() + DAYS[d].slice(1) + (d === today ? ' · hoy' : '') + '</td><td>' + (h ? hhmm(h[0]) + ' – ' + hhmm(h[1]) : 'Cerrado') + '</td></tr>';
+    }).join('') + '</tbody>';
+  }
+  var motivo = 'Consulta';
+  $('#motivo').addEventListener('click', function (e) { var b = e.target.closest('.chip'); if (!b) return; $$('.chip', this).forEach(function (c) { c.setAttribute('aria-pressed', c === b); }); motivo = b.getAttribute('data-v'); });
+  $('#privBtn').addEventListener('click', function () {
+    $$('#motivo .chip').forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-v') === 'Evento privado'); }); motivo = 'Evento privado';
+    $('#cMsg').value = 'Hola, quiero consultar por un evento privado para __ personas el día __.'; $('#cName').focus();
+    $('#contactForm').scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth', block: 'center' });
+  });
+  $('#contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = true;
+    function chk(fid, cond, msg) { var f = $(fid); f.classList.toggle('is-bad', !cond); $('.err', f).textContent = cond ? '' : msg; if (!cond) ok = false; }
+    chk('#cfName', $('#cName').value.trim().length >= 2, 'Escribí tu nombre.');
+    chk('#cfMail', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#cMail').value.trim()), 'Revisá el email: falta la @ o el dominio.');
+    chk('#cfMsg', $('#cMsg').value.trim().length >= 5, 'Contanos un poco más.');
+    if (!ok) return;
+    var s = $('#sent');
+    s.innerHTML = '<b>Mensaje listo</b><p>Gracias, ' + esc($('#cName').value.trim()) + '. Motivo: ' + esc(motivo) + '. En la web real, esto llega al correo del bar y te responden en el día. En esta demo no se envía.</p><button class="btn btn--line btn--sm cut" type="button" id="newMsg">Escribir otro</button>';
+    this.hidden = true; s.hidden = false;
+  });
+  $('#sent').addEventListener('click', function (e) { if (!e.target.closest('#newMsg')) return; $('#contactForm').reset(); $('#contactForm').hidden = false; this.hidden = true; });
+
+  /* ================= INICIO ================= */
+  renderStatus(); setInterval(renderStatus, 60000);
+  renderToday(); renderWeek(); renderFeat();
+  renderTabs(); renderItems(); recommend();
+  renderHours();
+  go((location.hash || '#inicio').slice(1), { keepScroll: true });
+})();
+</script>
 </body>
 </html>
